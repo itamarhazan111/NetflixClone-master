@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer} from 'react';
+import { useContext, useEffect, useReducer, useState} from 'react';
 import Title from '../Components/shared/Title'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { User } from '../user';
@@ -9,6 +9,7 @@ import Contents from '@/Components/HomePage/Contents';
 import axios from 'axios';
 import homePageReducer from '@/Reducers/homeReducer';
 import { IHomeState } from '@/Models/IHomeState';
+import { IContent } from '@/Models/IContent';
 
 const initialState: IHomeState ={
   loading:true,
@@ -23,6 +24,7 @@ const HomePage = () => {
     const redirectURL=new URLSearchParams(search);
     const redirectValue=redirectURL.get("redirect");
     const redirect = redirectValue ?redirectValue:"/signin";
+    const [genres,setGenres]=useState([]);
 
     const clickHandler =() =>{
       Cookies.remove("userInfo");
@@ -42,13 +44,16 @@ const HomePage = () => {
           payload: undefined
         });
       try{
-        const {data}=await axios.get("/api/v1/contents",{headers:{authorization: `Bearer ${userInfo.token}`}});
+        const {data}=await axios.get("/api/v1/contents",{headers:{authorization: `Bearer ${userInfo.token}`}});        
+        setGenres((await axios.get("/api/v1/seed/genres")).data.genres);
         dispatch({type:GET_SUCCESS,payload:data});
+        
       }catch(error:any){
           dispatch({type:GET_FAIL,payload:error.message});
       }
       };
       getContents();
+      console.log(genres)
     },[])
   return (
     <div>
@@ -60,7 +65,18 @@ const HomePage = () => {
           {state.loading ?<p>loading</p>: state.error ?<p>err</p>:(
             <Contents contents={state.data}></Contents>
           )}
+          
           </div>
+          <ul>
+            {genres.map((genre: string) => (
+              <div>
+                <h1>{genre}</h1>
+                <Contents contents={state.data.filter((c:IContent)=>c.genre==genre)}></Contents>
+              </div>
+        ))}
+      </ul>  
+
+
     </div>
   )
 }
