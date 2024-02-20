@@ -8,8 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel"
-import Content from './Content'
-const Contents = (props:{contents:[IContent]}) => {
+import Content from './ContentCard'
+const ContentsCarousel = (props:{contents:[IContent]}) => {
   return (
     <Carousel style={{width:"1000px" }}>
       <CarouselContent className="-ml-1">
@@ -31,4 +31,4 @@ const Contents = (props:{contents:[IContent]}) => {
   )
 }
 
-export default Contents
+export default ContentsCarousel

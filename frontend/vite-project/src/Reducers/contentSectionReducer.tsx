@@ -1,14 +1,14 @@
+import { IState as IState } from '@/Models/IState.js';
 import {GET_REQUEST,GET_FAIL,GET_SUCCESS} from '../Actions.jsx'
 import { MyAction } from '@/Models/MyAction.js';
-import { IHomeState } from '@/Models/IHomeState.js';
 
 
- const initialState: IHomeState ={
+ const initialState: IState ={
     loading:true,
     error:'',
     data:[]
  }
-const homePageReducer=(state: IHomeState = initialState, action: MyAction)=>{
+const contentSectionReducer=(state: IState = initialState, action: MyAction)=>{
     switch(action.type){
 
         case GET_REQUEST:{
@@ -24,4 +24,4 @@ const homePageReducer=(state: IHomeState = initialState, action: MyAction)=>{
     }
 }
 
-export default homePageReducer
+export default contentSectionReducer

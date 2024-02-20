@@ -1,7 +1,7 @@
 import { IContent } from "@/Models/IContent"
 import ReactPlayer from "react-player/youtube"
 
-const Content = (props:{content:IContent}) => {
+const ContentCard = (props:{content:IContent}) => {
   return (
     <div>"{props.content.title}"
         <div style={{width:50,height:50}}>
@@ -11,4 +11,4 @@ const Content = (props:{content:IContent}) => {
   )
 }
 
-export default Content
+export default ContentCard
