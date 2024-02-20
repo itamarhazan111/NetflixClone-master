@@ -1,5 +1,5 @@
 import express from "express";
-import { getGenres, seedData } from "../controllers/seedData";
+import { getGenresToClient, seedData } from "../controllers/seedData";
 
 
 
@@ -7,6 +7,6 @@ import { getGenres, seedData } from "../controllers/seedData";
 const seedRouter = express.Router();
 
 seedRouter.get('/', seedData);
-seedRouter.get('/genres', getGenres);
+seedRouter.get('/genres', getGenresToClient);
 
 export default seedRouter;

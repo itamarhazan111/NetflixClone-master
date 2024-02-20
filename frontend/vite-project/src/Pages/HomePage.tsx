@@ -44,8 +44,9 @@ const HomePage = () => {
           payload: undefined
         });
       try{
-        const {data}=await axios.get("/api/v1/contents",{headers:{authorization: `Bearer ${userInfo.token}`}});        
-        setGenres((await axios.get("/api/v1/seed/genres")).data.genres);
+     
+        setGenres((await axios.get("/api/v1/seed/genres")).data);
+        const {data}=await axios.get(`/api/v1/content/Horror`,{headers:{authorization: `Bearer ${userInfo.token}`}});   
         dispatch({type:GET_SUCCESS,payload:data});
         
       }catch(error:any){
@@ -53,28 +54,27 @@ const HomePage = () => {
       }
       };
       getContents();
-      console.log(genres)
     },[])
   return (
     <div>
         <Title title='Home - Netflix'/>
         <h1>NetFlix</h1>
         <button onClick={clickHandler}>Logout</button>
-        
+        {/* <p>{JSON.stringify(state.data)}</p> */}
         <div className='products'>
           {state.loading ?<p>loading</p>: state.error ?<p>err</p>:(
             <Contents contents={state.data}></Contents>
           )}
           
           </div>
-          <ul>
+          {/* <ul>
             {genres.map((genre: string) => (
               <div>
                 <h1>{genre}</h1>
                 <Contents contents={state.data.filter((c:IContent)=>c.genre==genre)}></Contents>
               </div>
         ))}
-      </ul>  
+      </ul>   */}
 
 
     </div>

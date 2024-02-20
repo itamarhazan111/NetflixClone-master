@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 //routes
 app.use("/api/v1/seed", seedRouter);
 app.use("/api/v1/users", userRouter);
-app.use("/api/v1/contents", contentRouter);
+app.use("/api/v1/content", contentRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("my server");
