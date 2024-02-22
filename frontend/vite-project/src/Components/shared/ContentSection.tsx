@@ -6,10 +6,11 @@ import {  useEffect, useReducer } from 'react';
 import { IState } from '@/Models/IState';
 import ContentsCarousel from '../HomePage/ContentCarousel';
 import { getData } from '@/utils';
+import { IContent } from '@/Models/IContent';
 
 
 
-const initialState: IState ={
+const initialState: IState<IContent> ={
   loading:true,
   error:'',
   data:[]

@@ -1,5 +1,9 @@
 import axios from "axios";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
+
+
+const baseURL=import.meta.env.VITE_BASE_URL ||'http://localhost:3000';
+axios.defaults.baseURL = baseURL;
 
 
 const createHeaders=()=>{
@@ -16,6 +20,6 @@ export const getError = (error: any) => {
 }
 export const getData=async(url:string)=>{
     const headers=createHeaders();
-    const {data}=await axios.get(`http://localhost:3000${url}`,headers);
+    const {data}=await axios.get(`${baseURL}${url}`,headers);
     return data;
 }

@@ -1,7 +1,5 @@
-import { IContent } from "./IContent";
-
-export interface IState {
+export interface IState<T>{
     loading:boolean,
     error:string,
-    data:IContent[]
+    data:T[]
   }

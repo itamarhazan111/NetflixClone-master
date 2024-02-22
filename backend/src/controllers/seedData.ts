@@ -60,3 +60,9 @@ const getListSeriesNames= async () => {
 export const getGenresToClient= async(req:Request,res:Response) => {
     res.send(genres);
 }
+export const getMovieNamesToClient= async(req:Request,res:Response) => {
+    res.send(listMovieNames);
+}
+export const getSeriesNamesToClient= async(req:Request,res:Response) => {
+    res.send(listSeriesNames);
+}
