@@ -10,6 +10,6 @@ contentRouter.get('/movies', expressAsyncHandler(getMovies));
 contentRouter.get('/series',isAuth, expressAsyncHandler(getSeries));
 contentRouter.get('/:genre',getContentsByGenre);
 contentRouter.get('/movies/:name',getContentsByMoviesName)
-contentRouter.get('/series/:name',isAuth,getContentsBySeriesName)
+contentRouter.get('/series/:name',getContentsBySeriesName)
 
 export default contentRouter;

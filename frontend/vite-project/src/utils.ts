@@ -17,6 +17,5 @@ export const getError = (error: any) => {
 export const getData=async(url:string)=>{
     const headers=createHeaders();
     const {data}=await axios.get(`http://localhost:3000${url}`,headers);
-    console.log(`http://localhost:3000${url}`);
     return data;
 }

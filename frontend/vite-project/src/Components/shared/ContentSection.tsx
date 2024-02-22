@@ -35,7 +35,7 @@ const ContentSection=(props:{genre:string|undefined,movieName:string|undefined,s
   },[])
   return (
     <div>
-        <h1>{props.genre}</h1>
+        <h1>{props.genre||props.movieName||props.seriesName}</h1>
         <ContentsCarousel contents={state.data}/>
     </div>
   )

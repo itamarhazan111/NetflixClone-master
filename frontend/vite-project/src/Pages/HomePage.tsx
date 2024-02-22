@@ -69,8 +69,8 @@ const HomePage = () => {
                   <ContentSection genre={listName} movieName={undefined} seriesName={undefined} url='' />
 
               ))}
-                <ContentSection genre={undefined} movieName='ToppicksforMovie' seriesName={undefined} url='movies/'  />
-                <ContentSection genre={undefined} movieName={undefined} seriesName='TopSeries' url='series/'/>
+                <ContentSection genre={undefined} movieName='Top picks for Movie' seriesName={undefined} url='movies/'  />
+                <ContentSection genre={undefined} movieName={undefined} seriesName='Top Series' url='series/'/>
             </div>
           )}
           
