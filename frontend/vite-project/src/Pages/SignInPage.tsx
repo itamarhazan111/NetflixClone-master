@@ -1,8 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import Title from "../Components/shared/Title";
 import { toast } from "react-toastify";
-import {getError} from "../utils" 
-import axios from "axios";
+import {getError, postData} from "../utils" 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { User } from "../user";
@@ -29,7 +28,7 @@ const SignInPage = () => {
         try {
             const emailValue = emailRef.current?.value || "";
             const passwordValue = passwordRef.current?.value || "";
-            const {data} = await axios.post("/api/v1/users/signin",{email:emailValue,password:passwordValue})
+            const data = await postData("/api/v1/users/signin",{email:emailValue,password:passwordValue})
             if(data){
                 ctxDispatch({ type: USER_SIGNIN, payload: data })
                 Cookies.set("userInfo",JSON.stringify(data));

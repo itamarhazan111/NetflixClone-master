@@ -6,7 +6,10 @@ import crypto from 'crypto'
 
 export const signup = async (req: Request, res: Response) => {
     const { username, email, password, isAdmin } = req.body;
-
+    const userIsExist = await User.findOne({ email: email });
+    if(userIsExist){
+        res.status(401).send({ message: "this email already exist" });
+    }
     const newUser = new User({
         username: username,
         email: email,
@@ -29,7 +32,6 @@ export const signup = async (req: Request, res: Response) => {
 
 export const signin = async (req: Request, res: Response) => {
     const { password: passwordFromWebsite, email } = req.body;
-
     const user = await User.findOne({ email: email });
     if (user) {
         if (bcrypt.compareSync(passwordFromWebsite.toString(), user.password.toString())) {

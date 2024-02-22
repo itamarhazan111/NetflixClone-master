@@ -3,10 +3,10 @@ import Title from "../Components/shared/Title"
 import { useContext, useRef } from "react";
 import { User } from "../user";
 import { USER_SIGNIN } from "../Actions";
-import axios from "axios";
+
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
-import { getError } from "../utils";
+import { getError, postData } from "../utils";
 
 
 const SignUpPage = () => {
@@ -15,7 +15,7 @@ const SignUpPage = () => {
     const passwordRef = useRef<HTMLInputElement>(null);
     const usernameRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
-    const { state:{userInfo},dispatch: ctxDispatch } = useContext(User);
+    const { dispatch: ctxDispatch } = useContext(User);
 
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ const SignUpPage = () => {
             const emailValue = emailRef.current?.value || "";
             const passwordValue = passwordRef.current?.value || "";
             const usernameValue = usernameRef.current?.value || "";
-            const {data} = await axios.post("/api/v1/users/signup",{email:emailValue,password:passwordValue,username:usernameValue,isAdmin:false})
+            const data = await postData("/api/v1/users/signup",{email:emailValue,password:passwordValue,username:usernameValue,isAdmin:false})
             if(data){
                 ctxDispatch({ type: USER_SIGNIN, payload: data })
                 Cookies.set("userInfo",JSON.stringify(data));
