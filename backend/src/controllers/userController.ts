@@ -39,6 +39,7 @@ export const signin = async (req: Request, res: Response) => {
                 _id: user._id,
                 username: user.username,
                 email: user.email,
+                profilePicture:user.profilePicture,
                 token: generateToken(user),
             });
             return;
