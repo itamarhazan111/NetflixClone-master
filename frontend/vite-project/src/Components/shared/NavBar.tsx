@@ -10,6 +10,7 @@ const NavBar = () => {
     const navigate = useNavigate();
     const { state: { userInfo }, dispatch: ctxDispatch } = useContext(User);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [image,setImage]=useState('');
 
     const handleScroll = () => {
         const position = window.scrollY;
@@ -17,6 +18,9 @@ const NavBar = () => {
     };
 
     useEffect(() => {
+        if(userInfo&&userInfo.profilePicture){
+            setImage(userInfo.profilePicture)
+        }
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         return () => {
@@ -51,7 +55,7 @@ const NavBar = () => {
                     </Link>
                     <Link onClick={clickHandler} className="dropdown-item hover:text-gray-500" to={''}>
                         {/* Sign out */}
-                        <img src={userInfo.profilePicture} alt="Profile Picture" className="w-8 rounded mr-2 " />
+                        <img src={image} alt="Profile Picture" className="w-8 rounded mr-2 " />
                     </Link>
                 </div>
             </div>

@@ -6,7 +6,7 @@ export const User = createContext<any>(null);
 const userInfoString: string | undefined = Cookies.get('userInfo');
 
 const initialState = {
-    userInfo:userInfoString ? JSON.parse(userInfoString) : null
+    userInfo: userInfoString ? JSON.parse(userInfoString) : null
 
 }
 

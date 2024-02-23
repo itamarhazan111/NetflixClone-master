@@ -1,15 +1,15 @@
-import { IState as IState } from '@/Models/IState.js';
+import { IStateArr as IStateArr } from '@/Models/IStateArr.js';
 import {GET_REQUEST,GET_FAIL,GET_SUCCESS} from '../Actions.jsx'
 import { MyAction } from '@/Models/MyAction.js';
 import { IContent } from '@/Models/IContent.js';
 
 
- const initialState: IState<IContent> ={
+ const initialState: IStateArr<IContent> ={
     loading:true,
     error:'',
     data:[]
  }
-const contentSectionReducer=(state: IState<IContent> = initialState, action: MyAction)=>{
+const contentSectionReducer=(state: IStateArr<IContent> = initialState, action: MyAction)=>{
     switch(action.type){
 
         case GET_REQUEST:{

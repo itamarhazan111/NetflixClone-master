@@ -1,14 +1,14 @@
 
 import {  useEffect, useReducer} from 'react';
 import pagesReducer from '@/Reducers/pagesReducer';
-import { IState } from '@/Models/IState';
+import { IStateArr } from '@/Models/IStateArr';
 import ContentSection from '@/Components/shared/ContentSection';
 import { getData } from '@/utils';
 import { GET_FAIL, GET_REQUEST, GET_SUCCESS } from '@/Actions';
 
 
 
-const initialState: IState<String> ={
+const initialState: IStateArr<String> ={
   loading:true,
   error:'',
   data:[]
