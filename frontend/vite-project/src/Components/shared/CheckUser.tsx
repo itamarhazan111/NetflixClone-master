@@ -1,6 +1,6 @@
 import { useContext, useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { User } from '../../user';
+import { User } from '../../Context/user';
 
 
 const CheckUser=()=> {

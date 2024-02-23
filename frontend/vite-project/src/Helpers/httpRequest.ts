@@ -16,9 +16,6 @@ const createHeaders=()=>{
 
 }
 
-export const getError = (error: any) => {
-    return error.message && error.response.data.message ? error.response.data.message : error.message
-}
 export const getData=async(url:string)=>{
         const headers=createHeaders();
         const {data}=await axios.get(`${baseURL}${url}`,headers);

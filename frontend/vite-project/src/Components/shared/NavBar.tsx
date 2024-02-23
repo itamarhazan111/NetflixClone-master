@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import Cookies from "js-cookie";
-import { USER_SIGNOUT } from '@/Actions';
+import { USER_SIGNOUT } from '@/Helpers/Actions';
 import { Link, useNavigate } from 'react-router-dom';
-import { User } from '@/user';
+import { User } from '@/Context/user';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 

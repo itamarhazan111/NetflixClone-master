@@ -1,9 +1,10 @@
 
-import { USER_SIGNIN, USER_SIGNOUT } from "../Actions";
-import { MyAction } from "@/Models/MyAction";
+import { IUserState } from "@/Models/States/IUserState";
+import { USER_SIGNIN, USER_SIGNOUT } from "../Helpers/Actions";
+import { MyAction } from "@/Models/Action/MyAction";
 
 
-const userReducer = (state:any, action:MyAction) => {
+const userReducer = (state:IUserState, action:MyAction) => {
     const type = action.type;
     const payload = action.payload;
     switch (type) {
@@ -14,7 +15,7 @@ const userReducer = (state:any, action:MyAction) => {
             return {...state,userInfo:null}
         }
         default:
-            break;
+            return {...state};
     }
 
 }

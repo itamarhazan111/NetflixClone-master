@@ -1,12 +1,13 @@
 import { Link, useNavigate } from "react-router-dom"
 import Title from "../Components/shared/Title"
 import { useContext, useRef } from "react";
-import { User } from "../user";
-import { USER_SIGNIN } from "../Actions";
+import { User } from "../Context/user";
+import { USER_SIGNIN } from "../Helpers/Actions";
 
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
-import { getError, postData } from "../utils";
+import { postData } from "../Helpers/httpRequest";
+import { getError } from "@/Helpers/utils";
 
 
 const SignUpPage = () => {

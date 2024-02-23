@@ -1,10 +1,10 @@
 
 import {  useEffect, useReducer} from 'react';
 import pagesReducer from '@/Reducers/pagesReducer';
-import { IStateArr } from '@/Models/IStateArr';
+import { IStateArr } from '@/Models/States/IStateArr';
 import ContentSection from '@/Components/shared/ContentSection';
-import { getData } from '@/utils';
-import { GET_FAIL, GET_REQUEST, GET_SUCCESS } from '@/Actions';
+import { getData } from '@/Helpers/httpRequest';
+import { GET_FAIL, GET_REQUEST, GET_SUCCESS } from '@/Helpers/Actions';
 
 
 

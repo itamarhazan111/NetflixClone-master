@@ -1,6 +1,6 @@
-import { IStateArr as IStateArr } from '@/Models/IStateArr.js';
-import {GET_REQUEST,GET_FAIL,GET_SUCCESS} from '../Actions.jsx'
-import { MyAction } from '@/Models/MyAction.js';
+import { IStateArr as IStateArr } from '@/Models/States/IStateArr.js';
+import {GET_REQUEST,GET_FAIL,GET_SUCCESS} from '../Helpers/Actions.js'
+import { MyAction } from '@/Models/Action/MyAction.js';
 import { IContent } from '@/Models/IContent.js';
 
 

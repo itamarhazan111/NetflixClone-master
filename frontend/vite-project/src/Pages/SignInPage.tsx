@@ -1,11 +1,12 @@
 import { useContext, useEffect, useRef } from "react";
 import Title from "../Components/shared/Title";
 import { toast } from "react-toastify";
-import {getError, postData} from "../utils" 
+import { postData} from "../Helpers/httpRequest" 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { User } from "../user";
-import { USER_SIGNIN } from "../Actions";
+import { User } from "../Context/user";
+import { USER_SIGNIN } from "../Helpers/Actions";
+import { getError } from "@/Helpers/utils";
 
 const SignInPage = () => {
     const emailRef = useRef<HTMLInputElement>(null);

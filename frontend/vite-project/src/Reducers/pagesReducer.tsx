@@ -1,6 +1,6 @@
-import {GET_REQUEST,GET_FAIL,GET_SUCCESS} from '../Actions.js'
-import { MyAction } from '@/Models/MyAction.js';
-import { IStateArr } from '@/Models/IStateArr.js';
+import {GET_REQUEST,GET_FAIL,GET_SUCCESS} from '../Helpers/Actions.js'
+import { MyAction } from '@/Models/Action/MyAction.js';
+import { IStateArr } from '@/Models/States/IStateArr.js';
 
 
  const initialState: IStateArr<String> ={
