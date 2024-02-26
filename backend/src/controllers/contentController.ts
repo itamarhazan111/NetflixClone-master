@@ -23,6 +23,27 @@ export const getSeries = async (req: Request, res: Response) => {
 
 //     res.send(contentList);
 // };
+export const getContentById = async (req: Request, res: Response) => {
+    const id=req.params.id;
+
+
+};
+export const getContentToBillboardByType = async (req: Request, res: Response) => {
+    const isSeries: boolean = req.params.isSeries.toLowerCase() === "true" ? true : false
+    const contentToBillboard = await Content.aggregate([
+            { $match: { isSeries:isSeries } },
+            { $sample: { size: 1 } }
+        ]);
+        res.send(contentToBillboard);
+    
+};
+export const getContentToBillboard = async (req: Request, res: Response) => {
+    const contentToBillboard = await Content.aggregate([
+            { $sample: { size: 1 } }
+        ]);
+        res.send(contentToBillboard);
+    
+};
 export const getContentsByGenre = async (req: Request, res: Response) => {
     try {
         const genre = req.params.genre;
