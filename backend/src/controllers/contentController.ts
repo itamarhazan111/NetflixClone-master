@@ -25,7 +25,9 @@ export const getSeries = async (req: Request, res: Response) => {
 // };
 export const getContentById = async (req: Request, res: Response) => {
     const id=req.params.id;
-
+    console.log(id)
+    const content= await Content.findById(id)
+    res.send(content);
 
 };
 export const getContentToBillboardByType = async (req: Request, res: Response) => {
@@ -41,9 +43,10 @@ export const getContentToBillboard = async (req: Request, res: Response) => {
     const contentToBillboard = await Content.aggregate([
             { $sample: { size: 1 } }
         ]);
-        res.send(contentToBillboard);
+        res.send(contentToBillboard[0]);
     
 };
+
 export const getContentsByGenre = async (req: Request, res: Response) => {
     try {
         const genre = req.params.genre;
@@ -62,7 +65,6 @@ export const getContentsByGenre = async (req: Request, res: Response) => {
 
         res.send(contentList);
     } catch (error) {
-        console.error(error);
         res.status(500).send('Internal Server Error');
     }
 };
@@ -82,7 +84,6 @@ export const getContentsByMoviesName = async (req: Request, res: Response) => {
 
         res.send(contentList);
     } catch (error) {
-        console.error(error);
         res.status(500).send('Internal Server Error');
     }
 };
@@ -105,7 +106,6 @@ export const getContentsBySeriesName = async (req: Request, res: Response) => {
 
         res.send(contentList);
     } catch (error) {
-        console.error(error);
         res.status(500).send('Internal Server Error');
     }
 };

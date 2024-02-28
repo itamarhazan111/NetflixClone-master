@@ -14,7 +14,7 @@ const HomePage = () => {
       <CheckUser/>
         <NavBar></NavBar>
         <Title title='Home - Netflix'/>
-        <BillBoard  ></BillBoard>
+        <BillBoard isSeries=''></BillBoard>
         <ContentPage name='genres'></ContentPage>
         <ContentPage name='series'></ContentPage>
         <ContentPage name='movies'></ContentPage>

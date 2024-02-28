@@ -1,4 +1,7 @@
+import  { Schema } from "mongoose"
+
 export interface IContent {
+    _id:Schema.Types.ObjectId,
     title: String,
     description: String,
     img: String,

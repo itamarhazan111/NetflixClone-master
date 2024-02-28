@@ -1,39 +1,23 @@
 
-import {  useEffect, useReducer} from 'react';
+import {  useReducer} from 'react';
 import pagesReducer from '@/Reducers/pagesReducer';
-import { IStateArr } from '@/Models/States/IStateArr';
 import ContentSection from '@/Components/shared/ContentSection';
-import { getData } from '@/Helpers/httpRequest';
-import { GET_FAIL, GET_REQUEST, GET_SUCCESS } from '@/Helpers/Actions';
+
+import { IState } from '@/Models/States/IState';
+import reducerHook from '@/Hooks/reducerHook';
 
 
 
-const initialState: IStateArr<String> ={
+const initialState: IState<String[]> ={
   loading:true,
   error:'',
-  data:[]
+  data:null
 }
 const ContentPage=(props:{name:String})=> {
     const [state,dispatch]=useReducer(pagesReducer,initialState);
+    reducerHook( `/api/v1/seed/${props.name}/`,dispatch)
 
-
-      useEffect(()=>{
-      const getContents=async()=>{
-        dispatch({
-          type: GET_REQUEST,
-          payload: undefined
-        });
-      try{
-     
-        const data=await getData(`/api/v1/seed/${props.name}/`);
-        dispatch({type:GET_SUCCESS,payload:data});
-        
-      }catch(error:any){
-          dispatch({type:GET_FAIL,payload:error.message});
-      }
-      };
-      getContents();
-    },[])
+   
   return (
     <div>
         <div className='products'>

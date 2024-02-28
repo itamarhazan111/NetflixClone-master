@@ -9,7 +9,7 @@ import { IState } from '@/Models/States/IState.js';
     error:'',
     data:null
  }
-const billBoardReducer=(state: IState<IContent> = initialState, action: MyAction)=>{
+const watchPageReducer=(state: IState<IContent> = initialState, action: MyAction)=>{
     switch(action.type){
 
         case GET_REQUEST:{
@@ -25,4 +25,4 @@ const billBoardReducer=(state: IState<IContent> = initialState, action: MyAction
     }
 }
 
-export default billBoardReducer
+export default watchPageReducer

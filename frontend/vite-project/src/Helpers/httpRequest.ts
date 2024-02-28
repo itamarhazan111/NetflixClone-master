@@ -18,6 +18,7 @@ const createHeaders=()=>{
 
 export const getData=async(url:string)=>{
         const headers=createHeaders();
+        console.log(`${baseURL}${url}`)
         const {data}=await axios.get(`${baseURL}${url}`,headers);
         return data;
 }
