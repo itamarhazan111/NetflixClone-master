@@ -9,13 +9,16 @@ import MoviesPage from './Pages/MoviesPage';
 import SeriesPage from './Pages/SeriesPage';
 import WatchPage from './Pages/WatchPage';
 import MyListPage from './Pages/MyListPage';
-
+import { HelmetProvider } from 'react-helmet-async'
+import { UserProvider } from './Context/user.tsx'
 function App() {
 
 
   return (
+    <UserProvider>
+    <HelmetProvider>
     <BrowserRouter>
-      <ToastContainer position='bottom-center' limit={1} />
+      <ToastContainer position="top-right" />
 
       <main className='bg-zinc-900 overflow-x-hidden'>
         <Routes>
@@ -29,6 +32,8 @@ function App() {
         </Routes>
       </main>
     </BrowserRouter>
+    </HelmetProvider>
+  </UserProvider>
   )
 }
 

@@ -93,9 +93,9 @@ const ContentCard = (props: { content: IContent }) => {
                 </ReactPlayer>
             }   
 
-          <div className="bottom-0 h-9 w-full bg-blue flex justify-between p-1 bg-white">
+<div className={`bottom-0 h-9 w-full flex justify-between p-1 bg-white ${hovered ? 'visible' : 'invisible'}`}>
           
-          {userInfo? userInfo.myList?.includes(props.content) ? (
+          {userInfo? userInfo.myList.some((item:IContent) => item._id == props.content._id) ? (
               <button onClick={removeToMyList}>-</button>
             ) : (
               <button onClick={addToMyList}>+</button>
