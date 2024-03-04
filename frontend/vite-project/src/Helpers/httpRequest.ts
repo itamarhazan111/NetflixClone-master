@@ -8,10 +8,9 @@ axios.defaults.baseURL = baseURL;
 
 
 const createHeaders=()=>{
-    const userInfoString: string | null = localStorage.getItem('userInfo');
-    const userInfo=userInfoString ? JSON.parse(userInfoString) : null;
-    if(userInfo&&userInfo.token){
-        return {headers:{authorization: `Bearer ${userInfo.token}`}}
+    const token: string | undefined = Cookies.get('token');
+    if(token){
+        return {headers:{authorization: `Bearer ${token}`}}
     }
 
 }

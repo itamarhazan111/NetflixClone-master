@@ -10,7 +10,6 @@ const CheckUser=()=> {
     const redirectURL=new URLSearchParams(search);
     const redirectValue=redirectURL.get("redirect");
     const redirect = redirectValue ?redirectValue:"/signin";
-    console.log(userInfo)
     useEffect(() => {
         if(!userInfo){
             navigate(redirect)

@@ -44,8 +44,7 @@ const SignInPage = () => {
             if (data) {
                 ctxDispatch({ type: USER_SIGNIN, payload: data })
                 localStorage.setItem("userInfo",JSON.stringify(data));
-                // const mylist = await getData(`/api/v1/users/getmylist/${data.email}`)
-                // ctxDispatch({ type: GET_MY_LIST, payload: mylist })
+                Cookies.set("token",data.token)
                 navigate(redirect);
             }
         } catch (error) {

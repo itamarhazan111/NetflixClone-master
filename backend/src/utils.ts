@@ -13,7 +13,7 @@ export const generateToken = (user:IUser) => {
     if (!process.env.JWT_PW) {
         throw new Error('MONGO_CONNECTION is not defined');
     }
-    return jwt.sign({ _id: user._id, username: user.username, email: user.email, isAdmin:user.isAdmin, profilePicture:user.profilePicture, myList:user.myList }, process.env.JWT_PW, { expiresIn: '7d' })
+    return jwt.sign({ _id: user._id, username: user.username, email: user.email, isAdmin:user.isAdmin, profilePicture:user.profilePicture }, process.env.JWT_PW, { expiresIn: '7d' })
 }
 export const sendMail = async (options: any) => {
     dotenv.config();

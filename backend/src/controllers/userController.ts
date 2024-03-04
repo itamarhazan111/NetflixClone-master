@@ -34,8 +34,6 @@ export const signin = async (req: Request, res: Response) => {
     const { password: passwordFromWebsite, email } = req.body;
     const user = await User.findOne({ email: email }).populate('myList');
     if (user) {
-        console.log(passwordFromWebsite)
-        console.log(email)
         if (bcrypt.compareSync(passwordFromWebsite.toString(), user.password.toString())) {
             res.send({
                 _id: user._id,
