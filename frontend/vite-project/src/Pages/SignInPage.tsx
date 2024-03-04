@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 import Title from "../Components/shared/Title";
 import { toast } from "react-toastify";
-import { postData} from "../Helpers/httpRequest" 
+import { postData } from "../Helpers/httpRequest"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { User } from "../Context/user";
@@ -50,27 +50,27 @@ const SignInPage = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-cover text-white md:flex-col" style={{ backgroundImage: `url('../assets/netflix-bg.jpg')` }}>
+        <div className="flex items-center bg-cover min-h-screen md:bg-[url('../assets/netflix-bg.jpg')]  flex-col">
             <Title title="Sign In" />
-            <div className="absolute invisible top-0 left-0 p-4 md:visible">
-                <img src="\assets\Netflix-Logo.wine.svg" alt="Netflix Logo" className="w-50 md:w-auto" />
+            <div className="mx-auto ml-0">
+                <img src="\assets\Netflix-Logo-Large.svg" alt="Netflix Logo" className="w-22 md:w-60" />
             </div>
-            <div className="w-full max-w-md px-3 py-3 bg-black bg-opacity-70 rounded-lg md:px-6 md:py-6">
-                <h1 className="text-2xl mb-10 md:text-6xl">Sign in</h1>
+            <div className="w-full max-w-md px-3 py-3 bg-black bg-opacity-80 rounded-lg md:px-6 md:py-6">
+                <h1 className="text-4xl mb-10 md:text-6xl text-white font-semibold">Sign In</h1>
                 <form onSubmit={(e) => loginHandler(e, "submit")} className="mb-8">
                     <input
                         type="email"
                         placeholder="Email"
                         ref={emailRef}
-                        className="block w-full py-3 px-4 mb-4 bg-black border border-gray-600 rounded-md text-white focus:outline-none focus:border-gray-400"
+                        className="block w-full py-3 px-4 mb-4 bg-stone-700 rounded-md focus:outline-none focus:bg-stone-500"
                     />
                     <input
                         type="password"
                         placeholder="Password"
                         ref={passwordRef}
-                        className="block w-full py-3 px-4 mb-4 bg-black border border-gray-600 rounded-md text-white focus:outline-none focus:border-gray-400"
+                        className="block w-full py-3 px-4 mb-4 bg-stone-700 rounded-md text-white focus:outline-none focus:bg-stone-500"
                     />
-                    <button type="submit" className="w-full py-3 px-4 bg-red-600 text-white rounded-md hover:bg-red-500 focus:outline-none mt-8 focus:bg-red-600">Login</button>
+                    <button type="submit" className="w-full py-3 px-4 bg-red-600 text-white rounded-md focus:outline-none mt-8 ">Login</button>
                 </form>
                 <p className="text-gray-400 ">New to Netflix? <Link to="/signup" className="text-white hover:underline">Sign up now.</Link></p>
                 <div className="container border border-white flex flex-col items-center justify-center mt-5">

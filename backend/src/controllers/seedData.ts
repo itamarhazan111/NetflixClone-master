@@ -44,7 +44,6 @@ export const seedData = async (req: Request, res: Response) => {
 
         res.send({ contents, users });
     } catch (error) {
-        console.error(error);
         res.status(500).send('Internal Server Error');
     }
 };

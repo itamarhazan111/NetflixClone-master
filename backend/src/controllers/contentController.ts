@@ -1,4 +1,4 @@
-import Content from "../models/Content";
+import Content, { IContent } from "../models/Content";
 import express, { Request, Response } from "express";
 import ContentListByGenre from "../models/ContentListByGenre";
 import ContentListByMovieName from "../models/ContentListByMovieName";
@@ -25,26 +25,33 @@ export const getSeries = async (req: Request, res: Response) => {
 // };
 export const getContentById = async (req: Request, res: Response) => {
     const id=req.params.id;
-    console.log(id)
     const content= await Content.findById(id)
     res.send(content);
 
 };
-export const getContentToBillboardByType = async (req: Request, res: Response) => {
-    const isSeries: boolean = req.params.isSeries.toLowerCase() === "true" ? true : false
-    const contentToBillboard = await Content.aggregate([
+// export const getContentToBillboardByType = async (req: Request, res: Response) => {
+//     const isSeries: boolean = req.params.isSeries.toLowerCase() === "true" ? true : false
+//     const contentToBillboard = await Content.aggregate([
+//             { $match: { isSeries:isSeries } },
+//             { $sample: { size: 1 } }
+//         ]);
+//         res.send(contentToBillboard);
+    
+// };
+export const getContentToBillboard = async (req: Request, res: Response) => {
+    const isSeries: boolean|null = req.params.isSeries.toLowerCase() === "true" ? true : req.params.isSeries.toLowerCase() === "false"?false:null;
+    let contentToBillboard;
+    if(isSeries==null){
+        contentToBillboard = await Content.aggregate([
+            { $sample: { size: 1 } }
+        ]);
+    }else{
+        contentToBillboard = await Content.aggregate([
             { $match: { isSeries:isSeries } },
             { $sample: { size: 1 } }
         ]);
-        res.send(contentToBillboard);
-    
-};
-export const getContentToBillboard = async (req: Request, res: Response) => {
-    const contentToBillboard = await Content.aggregate([
-            { $sample: { size: 1 } }
-        ]);
-        res.send(contentToBillboard[0]);
-    
+    }
+    res.send(contentToBillboard[0]);   
 };
 
 export const getContentsByGenre = async (req: Request, res: Response) => {

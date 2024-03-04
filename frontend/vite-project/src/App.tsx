@@ -8,6 +8,7 @@ import SignUpPage from './Pages/SignUpPage';
 import MoviesPage from './Pages/MoviesPage';
 import SeriesPage from './Pages/SeriesPage';
 import WatchPage from './Pages/WatchPage';
+import MyListPage from './Pages/MyListPage';
 
 function App() {
 
@@ -16,13 +17,14 @@ function App() {
     <BrowserRouter>
       <ToastContainer position='bottom-center' limit={1} />
 
-      <main>
+      <main className='bg-zinc-900 overflow-x-hidden'>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/signin" element={<SignInPage />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
           <Route path="/movies" element={<MoviesPage />}></Route>
           <Route path="/series" element={<SeriesPage />}></Route>
+          <Route path="/mylist" element={<MyListPage />}></Route>
           <Route path="/:id" element={<WatchPage />}></Route>
         </Routes>
       </main>

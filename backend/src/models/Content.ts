@@ -1,6 +1,6 @@
 import mongoose, { Model, Schema, model } from "mongoose";
 
-interface IContent {
+export interface IContent {
   title: String,
   description: String,
   img: String,

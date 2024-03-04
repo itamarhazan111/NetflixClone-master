@@ -49,10 +49,11 @@ export const signin = async (req: Request, res: Response) => {
 }
 
 export const getMyList = async (req: Request, res: Response) => {
-    const { email } = req.body;
+    const { email } = req.params;
     const user = await User.findOne({ email: email });
     if (user) {
-        res.status(200).send(user.myList);
+        const myList=await user.populate('myList');
+        res.status(200).send(myList);
     }
     else {
         res.status(404).send({ message: "email dose not exist" });
@@ -109,3 +110,30 @@ export const resetPassword = async (req: Request, res: Response) => {
         res.status(400).send({ message: "token is invalid or has expired" });
     }
 }   
+export const checkEmail = async (req: Request, res: Response) => {
+
+    const { email } = req.body;
+    const userIsExist = await User.findOne({ email: email });
+    if (userIsExist) {
+         res.status(401).send({ message: "this email already exists" });
+    }
+     res.status(200).send({ message: "email is available" });
+}
+export const addMovieToMyList=async (req: Request, res: Response) => {
+    const { email,contentIdToCheck } = req.body;
+    const user = await User.findOne({
+        email: email,
+        myList: {
+          $in: [contentIdToCheck]
+        }
+      })
+    if(user){
+        res.status(401).send({ message: "this content already exists" });
+    }else{      
+        await User.updateOne(
+            { email: email },
+            { $addToSet: { myList: contentIdToCheck } }
+        )
+        res.status(200).send({ message: "the content add to your list" });
+    }
+}

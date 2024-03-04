@@ -1,6 +1,5 @@
-
 import { IContent } from "@/Models/IContent"
-import { Card, CardContent } from "../ui/card"
+
 import {
   Carousel,
   CarouselContent,
@@ -8,27 +7,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel"
-import Content from './ContentCard'
-const ContentsCarousel = (props:{contents:[IContent]}) => {
+import ContentCard from "./ContentCard"
+const ContentsCarousel = (props: { contents: [IContent], title: string | undefined }) => {
+
   return (
-    <Carousel style={{width:"1000px" }}>
-      <CarouselContent className="-ml-1">
-        {Array.from({ length: props.contents.length }).map((_, index) => (
-          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/6">
-            <div className="p-1"  style={{width:"300px",height:"300px"}}>
-              <Card >
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <Content content={props.contents[index]}></Content>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  )
+    <div className="px-16 py-2">
+      <h2 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition-colors duration-200 hover:text-white md:text-2xl">
+        {props.title}
+      </h2>
+
+      <Carousel
+        opts={{
+          align: 'start',
+        }}
+        className="w-full">
+        <CarouselContent>
+          {Array.from({ length: props.contents.length }).map((_, index) => (
+            <CarouselItem key={index} className="sm:basis-1/3 md:basis-1/4 lg:basis-1/6">
+              <ContentCard content={props.contents[index]}></ContentCard>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
 }
 
 export default ContentsCarousel

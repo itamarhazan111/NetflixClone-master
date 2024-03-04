@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import { IContent } from './IContent';
 
 interface IUser {
   _id: Schema.Types.ObjectId;
@@ -7,7 +8,7 @@ interface IUser {
   password: string;
   isAdmin: boolean;
   profilePicture: string;
-  myList: Schema.Types.ObjectId[];
+  myList: IContent[]|undefined;
   ref: 'Content'; // Indicates that myList contains references to 'Content' model
   passwordChangeAt: number;
   passwordResetToken?: string;

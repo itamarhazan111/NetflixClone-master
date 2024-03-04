@@ -1,4 +1,3 @@
-
 import contentSectionReducer from '@/Reducers/contentSectionReducer';
 import ContentsCarousel from '../HomePage/ContentCarousel';
 import { IContent } from '@/Models/IContent';
@@ -8,22 +7,23 @@ import { useReducer } from 'react';
 
 
 
-const initialState: IState<IContent[]> ={
-  loading:true,
-  error:'',
-  data:null
+const initialState: IState<IContent[]> = {
+  loading: true,
+  error: '',
+  data: null
 }
 
-const ContentSection=(props:{genre:string|undefined,movieName:string|undefined,seriesName:string|undefined,url:string})=> {
-  const [state,dispatch]=useReducer(contentSectionReducer,initialState);
-  reducerHook( `/api/v1/content/${props.url}${props.genre ||props.movieName||props.seriesName }`,dispatch)
-  
+const ContentSection = (props: { genre: string | undefined, movieName: string | undefined, seriesName: string | undefined, url: string }) => {
+  const [state, dispatch] = useReducer(contentSectionReducer, initialState);
+  reducerHook(`/api/v1/content/${props.url}${props.genre || props.movieName || props.seriesName}`, dispatch)
+
   return (
+    // <div className="h-40 space-y-0.5 md:space-y-2">
     <div>
-        {state.data?<div>
-          <h1>{props.genre||props.movieName||props.seriesName}</h1>
-          <ContentsCarousel contents={state.data}/>
-        </div>:<div></div>}
+      {state.data ? <div>
+        {/* <h1 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition-colors duration-200 hover:text-white md:text-2xl">{props.genre  props.movieName  props.seriesName}</h1> */}
+        <ContentsCarousel contents={state.data} title={props.genre || props.movieName || props.seriesName} />
+      </div> : <div></div>}
 
     </div>
   )

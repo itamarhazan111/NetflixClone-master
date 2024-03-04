@@ -49,7 +49,6 @@ export const sendMail = async (options: any) => {
 
 export const isAuth = (req: Request, res: Response, next: NextFunction) => {
     const auth = req.headers.authorization;
-    console.log(auth)
     if (auth) {
         if (req.headers.authorization) {
             const token = req.headers.authorization.split(" ")[1];

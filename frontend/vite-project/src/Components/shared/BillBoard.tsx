@@ -17,7 +17,7 @@ const BillBoard= (props:{isSeries:string}) => {
   const [showTrailer, setShowTrailer] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
   reducerHook( `/api/v1/content/getContentBillBoard/${props.isSeries}`,dispatch)
- 
+
 
   const handleMouseEnter = () => {
     setTimer(

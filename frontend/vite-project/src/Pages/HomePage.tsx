@@ -10,11 +10,11 @@ import BillBoard from '@/Components/shared/BillBoard';
 const HomePage = () => {
 
   return (
-    <div>
+    <div >
       <CheckUser/>
         <NavBar></NavBar>
         <Title title='Home - Netflix'/>
-        <BillBoard isSeries=''></BillBoard>
+        <BillBoard isSeries='home'></BillBoard>
         <ContentPage name='genres'></ContentPage>
         <ContentPage name='series'></ContentPage>
         <ContentPage name='movies'></ContentPage>
