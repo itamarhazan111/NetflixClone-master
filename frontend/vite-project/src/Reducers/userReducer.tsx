@@ -26,7 +26,7 @@ const userReducer = (state: IUserState, action: MyAction) => {
           ...state,
           userInfo: {
             ...state.userInfo,
-            myList: state.userInfo?.myList?.filter(item => item !== payload) || [],
+            myList: state.userInfo?.myList?.filter(item => item._id !== payload._id) || [],
           },
         };
       }

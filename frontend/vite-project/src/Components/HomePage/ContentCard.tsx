@@ -8,6 +8,7 @@ import { postData } from "@/Helpers/httpRequest";
 import { toast } from "react-toastify";
 import { getError } from "@/Helpers/utils";
 import { ADD_TO_MY_LIST, REMOVE_FROM_MY_LIST } from "@/Helpers/Actions";
+import { CheckIcon, PlusIcon } from "lucide-react";
 
 
 
@@ -95,10 +96,10 @@ const ContentCard = (props: { content: IContent }) => {
 
 <div className={`bottom-0 h-9 w-full flex justify-between p-1 bg-white ${hovered ? 'visible' : 'invisible'}`}>
           
-          {userInfo? userInfo.myList.some((item:IContent) => item._id == props.content._id) ? (
-              <button onClick={removeToMyList}>-</button>
+          {userInfo? userInfo.myList.some((item:IContent) =>item._id === props.content._id) ? (
+              <button onClick={()=>removeToMyList()}><CheckIcon  strokeWidth={1.5} color="black" /></button>
             ) : (
-              <button onClick={addToMyList}>+</button>
+              <button onClick={()=>addToMyList()}><PlusIcon strokeWidth={1.5} color="black" /></button>
             ):<></>}
             <button onClick={navToWatchPage}>watch</button>
           </div>
