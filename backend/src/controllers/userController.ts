@@ -32,8 +32,10 @@ export const signup = async (req: Request, res: Response) => {
 
 export const signin = async (req: Request, res: Response) => {
     const { password: passwordFromWebsite, email } = req.body;
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email }).populate('myList');
     if (user) {
+        console.log(passwordFromWebsite)
+        console.log(email)
         if (bcrypt.compareSync(passwordFromWebsite.toString(), user.password.toString())) {
             res.send({
                 _id: user._id,
@@ -53,7 +55,7 @@ export const getMyList = async (req: Request, res: Response) => {
     const { email } = req.params;
     const user = await User.findOne({ email: email });
     if (user) {
-        const myList=await user.populate('myList');
+        const {myList}=await user.populate('myList');
         res.status(200).send(myList);
     }
     else {

@@ -49,7 +49,7 @@ const ContentCard = (props: { content: IContent }) => {
   const addToMyList=async()=>{
     try{
       const data=await postData("/api/v1/users/addmovietomylist",{email:userInfo.email,contentIdToCheck:props.content._id.toString()});
-      dispatch({ type:ADD_TO_MY_LIST,payload:props.content._id})
+      dispatch({ type:ADD_TO_MY_LIST,payload:props.content})
       toast.success(data.message);
     }catch(error){
       toast.error(getError(error))
@@ -58,7 +58,7 @@ const ContentCard = (props: { content: IContent }) => {
   const removeToMyList=async()=>{
     try{
       const data=await postData("/api/v1/users/removeMovieToMyList",{email:userInfo.email,contentIdToCheck:props.content._id.toString()});
-      dispatch({ type:REMOVE_FROM_MY_LIST,payload:props.content._id})
+      dispatch({ type:REMOVE_FROM_MY_LIST,payload:props.content})
       toast.success(data.message);
     }catch(error){
       toast.error(getError(error))
@@ -95,7 +95,7 @@ const ContentCard = (props: { content: IContent }) => {
 
           <div className="bottom-0 h-9 w-full bg-blue flex justify-between p-1 bg-white">
           
-          {userInfo? userInfo.myList?.includes(props.content._id.toString()) ? (
+          {userInfo? userInfo.myList?.includes(props.content) ? (
               <button onClick={removeToMyList}>-</button>
             ) : (
               <button onClick={addToMyList}>+</button>

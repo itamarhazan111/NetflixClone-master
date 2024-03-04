@@ -4,7 +4,7 @@ import Cookies from "js-cookie"
 import { IUserState } from "../Models/States/IUserState";
 
 export const User = createContext<any>(null);
-const userInfoString: string | undefined = Cookies.get('userInfo');
+const userInfoString: string | null = localStorage.getItem('userInfo');
 
 const initialState:IUserState = {
     userInfo: userInfoString ? JSON.parse(userInfoString) : null
