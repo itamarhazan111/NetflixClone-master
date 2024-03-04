@@ -3,7 +3,7 @@ import ContentsCarousel from '../HomePage/ContentCarousel';
 import { IContent } from '@/Models/IContent';
 import { IState } from '@/Models/States/IState';
 import reducerHook from '@/Hooks/reducerHook';
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 
 
 
@@ -15,8 +15,9 @@ const initialState: IState<IContent[]> = {
 
 const ContentSection = (props: { genre: string | undefined, movieName: string | undefined, seriesName: string | undefined, url: string }) => {
   const [state, dispatch] = useReducer(contentSectionReducer, initialState);
-  reducerHook(`/api/v1/content/${props.url}${props.genre || props.movieName || props.seriesName}`, dispatch)
-
+  useEffect(() => {
+    reducerHook(`/api/v1/content/${props.url}${props.genre || props.movieName || props.seriesName}`, dispatch)
+  },[])
   return (
     // <div className="h-40 space-y-0.5 md:space-y-2">
     <div>

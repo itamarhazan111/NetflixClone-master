@@ -1,5 +1,5 @@
 
-import {  useReducer} from 'react';
+import {  useEffect, useReducer} from 'react';
 import pagesReducer from '@/Reducers/pagesReducer';
 import ContentSection from '@/Components/shared/ContentSection';
 
@@ -15,8 +15,9 @@ const initialState: IState<String[]> ={
 }
 const ContentPage=(props:{name:String})=> {
     const [state,dispatch]=useReducer(pagesReducer,initialState);
-    reducerHook( `/api/v1/seed/${props.name}/`,dispatch)
-
+    useEffect(() => {
+      reducerHook( `/api/v1/seed/${props.name}/`,dispatch)
+    },[])
    
   return (
     <div>

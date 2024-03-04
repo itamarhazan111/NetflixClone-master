@@ -21,7 +21,9 @@ const SignInPage = () => {
     useEffect(() => {
         if (userInfo) {
             navigate(redirect)
-        }
+        }else(
+            navigate('/signin')
+        )
     }, [navigate, redirect, userInfo]);
 
     const loginHandler = async (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>, action: string) => {

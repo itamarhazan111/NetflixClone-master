@@ -7,7 +7,8 @@ import { User } from "@/Context/user";
 import { postData } from "@/Helpers/httpRequest";
 import { toast } from "react-toastify";
 import { getError } from "@/Helpers/utils";
-import { ADD_TO_MY_LIST } from "@/Helpers/Actions";
+import { ADD_TO_MY_LIST, REMOVE_FROM_MY_LIST } from "@/Helpers/Actions";
+
 
 
 // import { ChevronDownIcon } from '@heroicons/react/24/outline';
@@ -16,13 +17,15 @@ import { ADD_TO_MY_LIST } from "@/Helpers/Actions";
 
 
 
-
 const ContentCard = (props: { content: IContent }) => {
   const { state:{userInfo},dispatch } = useContext(User);
   const [hovered, setHovered] = useState<boolean>(false);
   const [showTrailer, setShowTrailer] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  const navigate=useNavigate()
+  const navigate=useNavigate();
+
+   
+
   const handleMouseEnter = () => {
     setHovered(true)
     setTimer(
@@ -46,8 +49,16 @@ const ContentCard = (props: { content: IContent }) => {
   const addToMyList=async()=>{
     try{
       const data=await postData("/api/v1/users/addmovietomylist",{email:userInfo.email,contentIdToCheck:props.content._id.toString()});
-      dispatch({ type:ADD_TO_MY_LIST,payload:props.content})
-      console.log( userInfo)
+      dispatch({ type:ADD_TO_MY_LIST,payload:props.content._id})
+      toast.success(data.message);
+    }catch(error){
+      toast.error(getError(error))
+    }    
+  }
+  const removeToMyList=async()=>{
+    try{
+      const data=await postData("/api/v1/users/removeMovieToMyList",{email:userInfo.email,contentIdToCheck:props.content._id.toString()});
+      dispatch({ type:REMOVE_FROM_MY_LIST,payload:props.content._id})
       toast.success(data.message);
     }catch(error){
       toast.error(getError(error))
@@ -83,9 +94,12 @@ const ContentCard = (props: { content: IContent }) => {
             }   
 
           <div className="bottom-0 h-9 w-full bg-blue flex justify-between p-1 bg-white">
-
-            asfasfsdfsdfsd
-            <button onClick={addToMyList}>+</button>
+          
+          {userInfo? userInfo.myList?.includes(props.content._id.toString()) ? (
+              <button onClick={removeToMyList}>-</button>
+            ) : (
+              <button onClick={addToMyList}>+</button>
+            ):<></>}
             <button onClick={navToWatchPage}>watch</button>
           </div>
 

@@ -1,4 +1,4 @@
-import  { useReducer, useState } from 'react';
+import  { useEffect, useReducer, useState } from 'react';
 
 import ReactPlayer from 'react-player';
 import { IState } from '@/Models/States/IState';
@@ -16,8 +16,9 @@ const BillBoard= (props:{isSeries:string}) => {
   const [state,dispatch]=useReducer(billBoardReducer,initialState);
   const [showTrailer, setShowTrailer] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+  useEffect(() => {
   reducerHook( `/api/v1/content/getContentBillBoard/${props.isSeries}`,dispatch)
-
+  },[])
 
   const handleMouseEnter = () => {
     setTimer(

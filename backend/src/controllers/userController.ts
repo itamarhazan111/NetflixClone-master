@@ -41,6 +41,7 @@ export const signin = async (req: Request, res: Response) => {
                 email: user.email,
                 profilePicture:user.profilePicture,
                 token: generateToken(user),
+                myList:user.myList
             });
             return;
         }
@@ -135,5 +136,23 @@ export const addMovieToMyList=async (req: Request, res: Response) => {
             { $addToSet: { myList: contentIdToCheck } }
         )
         res.status(200).send({ message: "the content add to your list" });
+    }
+}
+export const removeMovieToMyList=async (req: Request, res: Response) => {
+    const { email,contentIdToCheck } = req.body;
+    const user = await User.findOne({
+        email: email,
+        myList: {
+          $in: [contentIdToCheck]
+        }
+      })
+    if(user){
+        const result = await User.updateOne(
+            { email: email },
+            { $pull: { myList: contentIdToCheck } }
+          );
+        res.status(200).send({ message: "the content remove from your list" });
+    }else{      
+        res.status(401).send({ message: "this content does not exist" });
     }
 }

@@ -2,7 +2,7 @@ import reducerHook from '@/Hooks/reducerHook';
 import { IContent } from '@/Models/IContent';
 import { IState } from '@/Models/States/IState';
 import billBoardReducer from '@/Reducers/billBoardReducer';
-import  {  useReducer } from 'react'
+import  {  useEffect, useReducer } from 'react'
 import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
 
@@ -16,8 +16,9 @@ const initialState: IState<IContent[]> ={
 const WatchPage=()=> {
     const {id}=useParams();
     const [state,dispatch]=useReducer(billBoardReducer,initialState);
-    reducerHook( `/api/v1/content/getById/${id}`,dispatch)
-
+    useEffect(() => {
+      reducerHook( `/api/v1/content/getById/${id}`,dispatch)
+    },[])
 
       return (
         <div>

@@ -2,10 +2,10 @@ import { GET_FAIL, GET_REQUEST, GET_SUCCESS } from '@/Helpers/Actions';
 import { getData } from '@/Helpers/httpRequest';
 import { MyAction } from '@/Models/Action/MyAction';
 
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const reducerHook=(url:string,dispatch:React.Dispatch<MyAction>)=> {
-    useEffect(()=>{
+
 
         const getInfo=async()=>{
           
@@ -24,9 +24,8 @@ const reducerHook=(url:string,dispatch:React.Dispatch<MyAction>)=> {
         }
         };
         getInfo();
-      },[])
+      }
 
-}
 
 
 export default reducerHook
