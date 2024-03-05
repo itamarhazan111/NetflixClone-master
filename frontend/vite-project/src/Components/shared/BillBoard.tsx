@@ -1,10 +1,11 @@
 import  { useEffect, useReducer, useState } from 'react';
-
-import ReactPlayer from 'react-player';
 import { IState } from '@/Models/States/IState';
 import { IContent } from '@/Models/IContent';
 import billBoardReducer from '@/Reducers/billBoardReducer';
 import reducerHook from '@/Hooks/reducerHook';
+import BillBoardImage from '../BillBoard/BillBoardImage';
+import BillBoardContent from '../BillBoard/BillBoardContent';
+import BillBoardVideo from '../BillBoard/BillBoardVideo';
 
 const initialState: IState<IContent[]> ={
     loading:true,
@@ -44,21 +45,12 @@ const BillBoard= (props:{isSeries:string}) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
             {!showTrailer && (
-            <img style={{ width: '100%', height: '100%' }} src={state.data.imgThumb.toString()} alt="Thumbnail" />
+              <BillBoardImage image={state.data.imgThumb.toString()}/>
             )}
-            {showTrailer && (
-                <ReactPlayer
-                className="pointer-events-none"
-                muted
-                playing
-                loop
-                controls={false}
-                url={state.data.trailer.toString()}
-                disablePictureInPicture
-                width={'100%'}
-                height={'100%'}
-                />
+            {showTrailer &&  (
+              <BillBoardVideo trailer={state.data.trailer.toString()}/>
             )}
+            <BillBoardContent title={state.data.title} description={state.data.description} hideDescription={showTrailer} _id={state.data._id} />
         </div>:<div></div>}
         
         </div>
