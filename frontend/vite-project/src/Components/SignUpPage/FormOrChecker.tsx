@@ -37,8 +37,9 @@ const FormOrChecker = () => {
 
             const data = await postData("/api/v1/users/signup", { email: emailValue, password: passwordValue, username: usernameValue, isAdmin: false });
             if (data) {
-                ctxDispatch({ type: USER_SIGNIN, payload: data });
-                Cookies.set("userInfo", JSON.stringify(data));
+                ctxDispatch({ type: USER_SIGNIN, payload: data })
+                localStorage.setItem("userInfo",JSON.stringify(data));
+                Cookies.set("token",data.token)
                 navigate("/");
             }
         } catch (error) {

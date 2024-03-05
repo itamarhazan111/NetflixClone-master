@@ -1,5 +1,5 @@
-import Content, { IContent } from "../models/Content";
-import express, { Request, Response } from "express";
+import Content from "../models/Content";
+import { Request, Response } from "express";
 import ContentListByGenre from "../models/ContentListByGenre";
 import ContentListByMovieName from "../models/ContentListByMovieName";
 import ContentListBySeriesName from "../models/ContentListBySeriesName";

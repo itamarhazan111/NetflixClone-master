@@ -44,7 +44,7 @@ const BillBoard= (props:{isSeries:string}) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
             {!showTrailer && (
-            <img style={{ width: '100%', height: 'auto' }} src={state.data.imgThumb.toString()} alt="Thumbnail" />
+            <img style={{ width: '100%', height: '100%' }} src={state.data.imgThumb.toString()} alt="Thumbnail" />
             )}
             {showTrailer && (
                 <ReactPlayer
