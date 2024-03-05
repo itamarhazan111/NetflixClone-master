@@ -102,7 +102,7 @@ const ContentCard = (props: { content: IContent }) => {
             ) : (
               <button onClick={()=>addToMyList()}><PlusIcon strokeWidth={1.5} color="black" /></button>
             ):<></>}
-            <button onClick={navToWatchPage}><FontAwesomeIcon icon="fa-solid fa-play" /></button>
+            <button onClick={navToWatchPage}><i className="fa-solid fa-play"></i></button>
           </div>
 
 
