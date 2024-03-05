@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <ToastContainer position="top-right" />
 
-      <main className='bg-zinc-900 overflow-x-hidden'>
+      <main className='bg-zinc-900 overflow-x-hidden min-h-screen'>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/signin" element={<SignInPage />}></Route>

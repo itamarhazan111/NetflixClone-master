@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import userReducer from "../Reducers/userReducer";
-import Cookies from "js-cookie"
 import { IUserState } from "../Models/States/IUserState";
 
 export const User = createContext<any>(null);

@@ -14,21 +14,28 @@ const userReducer = (state: IUserState, action: MyAction) => {
       return { ...state, userInfo:null};
     }
     case ADD_TO_MY_LIST: {
+
+        const myList=[...(state.userInfo?.myList||[]),payload];
+        const userInfo={
+                ...state.userInfo,
+                myList: myList,
+        }
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
       return {
         ...state,
-        userInfo: {
-          ...state.userInfo,
-          myList: [...(state.userInfo?.myList||[]),payload],
-        },
+        userInfo: userInfo,
       };
     }case REMOVE_FROM_MY_LIST: {
-        return {
-          ...state,
-          userInfo: {
+        const myList= state.userInfo?.myList?.filter(item => item._id !== payload._id) || [];
+        const userInfo={
             ...state.userInfo,
-            myList: state.userInfo?.myList?.filter(item => item._id !== payload._id) || [],
-          },
-        };
+            myList: myList,
+    }
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+      return {
+        ...state,
+        userInfo: userInfo,
+      };
       }
     default:
       return { ...state };
