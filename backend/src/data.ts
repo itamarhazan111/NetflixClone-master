@@ -495,7 +495,7 @@ export const data = {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Emily_in_Paris_logo.svg/1200px-Emily_in_Paris_logo.svg.png',
       imgVertical: 'https://flxt.tmsimg.com/assets/p20738800_b_v13_ae.jpg',
       imgThumb:
-        'https://media.newyorker.com/photos/5fab116f3f5e6c06f138f155/16:9/w_3600,h_2025,c_limit/Chayka-ambient-tv-1.jpg',
+        'https://www.israelhayom.co.il/wp-content/uploads/2022/01/16030876070113_b.jpg',
       trailer: 'https://youtu.be/Xl3HY9yMEBI',
       movie: 'https://youtu.be/Xl3HY9yMEBI',
       duration: '30 min',
