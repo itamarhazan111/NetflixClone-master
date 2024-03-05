@@ -11,8 +11,11 @@ const MyListPage= () => {
       <CheckUser/>
       <NavBar></NavBar>
       <Title title='my list - Netflix'/>
-      
-      <MyListGrid/>
+      <div className="px-14 py-20 ">
+        <h1 className="text-white text-3xl">My List</h1>
+        <MyListGrid/>
+      </div>
+
 
   </div>
     );

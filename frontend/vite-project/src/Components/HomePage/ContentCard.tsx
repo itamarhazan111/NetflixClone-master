@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 import { getError } from "@/Helpers/utils";
 import { ADD_TO_MY_LIST, REMOVE_FROM_MY_LIST } from "@/Helpers/Actions";
 import { CheckIcon, PlusIcon } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
