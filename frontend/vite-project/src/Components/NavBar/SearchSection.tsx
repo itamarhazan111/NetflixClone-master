@@ -1,42 +1,54 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SearchSection = () => {
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [searchText, setSearchText] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+    const node = useRef<HTMLDivElement>(null);  
+    const [ query, setQuery ] = useState("");
+    const navigate=useNavigate();
+  
+    useEffect(() => {
+      if(!query){
+        return;
+      }
+      navigate(`/search/${query}`);
+    }, [query]);
+  
+          
+  
 
-    const toggleSearch = () => {
-        setIsSearchOpen(prevState => !prevState);
-    };
-
-    const searchTextHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchText(e.target.value);
-    };
-
-    const clearTextHandler = () => {
-        setSearchText("");
-    }
-
-    const searchInputClass = searchText.length > 0 ? "" : "invisible";
+    const handleClickOutside = (e: MouseEvent) => {
+        if (node.current?.contains(e.target as Node)) {
+            // inside click
+            return;
+        }
+        // outside click 
+        setIsOpen(false);
+    };  
+    useEffect(() => {
+        // add when mounted
+        document.addEventListener("mousedown", handleClickOutside);
+        // return function to be called when unmounted
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
-        <div>
-            {!isSearchOpen ?
-                <button className='nav-link' onClick={toggleSearch}>
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-                :
-                <div className='bg-zinc-900 bg-opacity-80 border border-white'>
-                    <i className="fa-solid fa-magnifying-glass mr-2 ml-2 mt-2 mb-2" onClick={toggleSearch}></i>
-                    <input type='text' className='bg-black bg-opacity-0 focus:outline-none' value={searchText} onChange={searchTextHandler} placeholder='Titles'></input>
-                    <button>
-                        <i className={`fa-solid fa-xmark mr-2 ${searchInputClass}`} onClick={clearTextHandler} />
-                    </button>
-                </div>
-            }
-
-
+        <div className={`relative flex items-center transition duration-500 ${isOpen ? 'border-2 border-white' : 'border-0 border-transparent'}`} ref={node}>
+            <div className="cursor-pointer text-lg" onClick={() => setIsOpen(!isOpen)}>
+                <i className="fa-solid fa-magnifying-glass ml-2 text-white"></i>
+            </div>
+            <input
+                className={`transition-width duration-500 ease-in-out ml-2 bg-transparent text-white placeholder-white outline-none ${isOpen ? 'w-48' : 'w-0'
+                    }`}
+                type="text"
+                placeholder="Search..."
+                onChange={(e)=>setQuery(e.target.value)}
+            />
         </div>
-    )
-}
+    );
+};
 
-export default SearchSection;
+
+export default SearchSection;

@@ -11,7 +11,6 @@ const MoviesPage = () => {
   return (
     <div>
         <CheckUser/>
-        <NavBar></NavBar>
         <Title title='Home - Netflix'/>
         <BillBoard isSeries="false"></BillBoard>
         <ContentPage name='movies'></ContentPage>

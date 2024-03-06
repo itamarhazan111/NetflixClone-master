@@ -6,7 +6,7 @@ import  {  useEffect, useReducer } from 'react'
 import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
 
-const initialState: IState<IContent[]> ={
+const initialState: IState<IContent> ={
     loading:true,
     error:'',
     data:null

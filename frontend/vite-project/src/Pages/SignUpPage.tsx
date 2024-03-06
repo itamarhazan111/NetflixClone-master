@@ -30,7 +30,7 @@ const SignUpPage = () => {
                     <button type="button" onClick={() => navigate("/signin")} className="py-3 px-4 bg-red-600 text-white rounded-md">Sign In</button>
                 </div>
             </div>
-            <FormOrChecker></FormOrChecker>
+            <FormOrChecker/>
         </div>
 
     );

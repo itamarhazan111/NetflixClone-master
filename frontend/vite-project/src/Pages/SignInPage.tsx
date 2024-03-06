@@ -9,14 +9,15 @@ import { GET_MY_LIST, USER_SIGNIN } from "../Helpers/Actions";
 import { getError } from "@/Helpers/utils";
 
 const SignInPage = () => {
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
+
     const navigate = useNavigate();
     const { state: { userInfo }, dispatch: ctxDispatch } = useContext(User);
     const { search } = useLocation();
     const redirectURL = new URLSearchParams(search);
     const redirectValue = redirectURL.get("redirect");
     const redirect = redirectValue ? redirectValue : "/";
+    const emailRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (userInfo) {

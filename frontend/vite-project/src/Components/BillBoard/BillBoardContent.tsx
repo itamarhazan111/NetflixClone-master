@@ -4,7 +4,7 @@ const BillBoardContent=(props:{title:String,description:String,hideDescription:B
     const navigate=useNavigate();
 
     const navToWatchPage=()=>{
-        navigate(`/${props._id.toString()}`)
+        navigate(`/watch/${props._id.toString()}`)
       }
   return (
     <div className="absolute inset-0 flex items-center justify-start text-white px-5">

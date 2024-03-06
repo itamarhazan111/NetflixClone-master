@@ -11,7 +11,6 @@ const ProfileSection = (props: { image: string }) => {
     const [hideTimeoutId, setHideTimeoutId] = useState<number | null>(null);
 
     const clickHandler = () => {
-        Cookies.remove("userInfo");
         ctxDispatch({ type: USER_SIGNOUT })
         navigate("/");
     }

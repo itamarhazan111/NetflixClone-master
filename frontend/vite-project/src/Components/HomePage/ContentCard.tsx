@@ -1,31 +1,19 @@
 import { IContent } from "@/Models/IContent"
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "../ui/card";
 import { useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
-import { User } from "@/Context/user";
-import { postData } from "@/Helpers/httpRequest";
-import { toast } from "react-toastify";
-import { getError } from "@/Helpers/utils";
-import { ADD_TO_MY_LIST, REMOVE_FROM_MY_LIST } from "@/Helpers/Actions";
-import { CheckIcon, PlusIcon } from "lucide-react";
-
-
-
-// import { ChevronDownIcon } from '@heroicons/react/24/outline';
-// import { PlayIcon } from '@heroicons/react/24/solid';
-// import FavoriteButton from '@/components/FavoriteButton';
+import CardHoverInterface from "../ContentCard/CardHoverInterface";
 
 
 
 const ContentCard = (props: { content: IContent }) => {
-  const { state:{userInfo},dispatch } = useContext(User);
   const [hovered, setHovered] = useState<boolean>(false);
   const [showTrailer, setShowTrailer] = useState(false);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-   
+
 
   const handleMouseEnter = () => {
     setHovered(true)
@@ -44,42 +32,25 @@ const ContentCard = (props: { content: IContent }) => {
       setTimer(null);
     }
   };
-  const navToWatchPage=()=>{
-    navigate(`/${props.content._id.toString()}`)
-  }
-  const addToMyList=async()=>{
-    try{
-      const data=await postData("/api/v1/users/addmovietomylist",{email:userInfo.email,contentIdToCheck:props.content._id.toString()});
-      dispatch({ type:ADD_TO_MY_LIST,payload:props.content})
-      toast.success(data.message);
-    }catch(error){
-      toast.error(getError(error))
-    }    
-  }
-  const removeToMyList=async()=>{
-    try{
-      const data=await postData("/api/v1/users/removeMovieToMyList",{email:userInfo.email,contentIdToCheck:props.content._id.toString()});
-      dispatch({ type:REMOVE_FROM_MY_LIST,payload:props.content})
-      toast.success(data.message);
-    }catch(error){
-      toast.error(getError(error))
-    }    
+  const navToWatchPage = () => {
+    navigate(`/watch/${props.content._id.toString()}`)
   }
 
 
   return (
-    <Card className='bg-transparent border-none'>
-      <CardContent className="flex aspect-square items-center justify-center p-0">
-        <div
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={handleMouseEnter}
-          className={`${hovered ? 'z-10' : ''
-            } h-auto transform transition-transform duration-500 hover:scale-150`}>
+    <Card className='bg-transparent border-none h-full'>
+      <CardContent className="flex aspect-square p-0">
+        <div className="">
+          <div
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            className={`${hovered ? 'z-10' : ''
+              }transform transition-transform duration-500 hover:scale-150 flex flex-col`}>
             {!showTrailer &&
-          <img src={props.content.imgThumb.toString()}onClick={navToWatchPage}/>
-          }
+              <img src={props.content.imgThumb.toString()} onClick={navToWatchPage} />
+            }
             {showTrailer &&
-                <ReactPlayer
+              <ReactPlayer
                 className="pointer-events-none"
                 muted
                 playing
@@ -87,25 +58,20 @@ const ContentCard = (props: { content: IContent }) => {
                 controls={false}
                 disablePictureInPicture
                 width={'100%'}
-                height={'100%'}
-                url={props.content.trailer.toString()} 
+                height={'60%'}
+                url={props.content.trailer.toString()}
                 onClick={navToWatchPage}>
 
-                </ReactPlayer>
-            }   
-
-<div className={`bottom-0 h-9 w-full flex justify-between p-1 bg-white ${hovered ? 'visible' : 'invisible'}`}>
-          
-          {userInfo? userInfo.myList.some((item:IContent) =>item._id === props.content._id) ? (
-              <button onClick={()=>removeToMyList()}><CheckIcon  strokeWidth={1.5} color="black" /></button>
-            ) : (
-              <button onClick={()=>addToMyList()}><PlusIcon strokeWidth={1.5} color="black" /></button>
-            ):<></>}
-            <button onClick={navToWatchPage}><i className="fa-solid fa-play"></i></button>
+              </ReactPlayer>
+            }
+            {hovered ?
+              <div className={`p-1 bg-zinc-800 shadow-2xl`}>
+                <CardHoverInterface content={props.content}></CardHoverInterface>
+              </div>
+              : <></>}
           </div>
-
-
         </div>
+
       </CardContent>
     </Card >
   );

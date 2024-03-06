@@ -10,10 +10,13 @@ import SeriesPage from './Pages/SeriesPage';
 import WatchPage from './Pages/WatchPage';
 import MyListPage from './Pages/MyListPage';
 import { HelmetProvider } from 'react-helmet-async'
-import { UserProvider } from './Context/user.tsx'
-function App() {
+import {  UserProvider } from './Context/user.tsx'
+import SearchPage from './Pages/SearchPage.tsx';
+import NavBar from './Components/shared/NavBar.tsx';
 
+const App=()=> {
 
+  
   return (
     <UserProvider>
     <HelmetProvider>
@@ -21,14 +24,17 @@ function App() {
       <ToastContainer position="top-right" />
 
       <main className='bg-zinc-900 overflow-x-hidden min-h-screen'>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/signin" element={<SignInPage />}></Route>
+
+        <NavBar/>
+        <Routes>          
+        <Route path="/signin" element={<SignInPage />}></Route>
           <Route path="/signup" element={<SignUpPage />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
           <Route path="/movies" element={<MoviesPage />}></Route>
           <Route path="/series" element={<SeriesPage />}></Route>
           <Route path="/mylist" element={<MyListPage />}></Route>
-          <Route path="/:id" element={<WatchPage />}></Route>
+          <Route path="/watch/:id" element={<WatchPage />}></Route>
+          <Route path="/search/:title" element={<SearchPage />}></Route>
         </Routes>
       </main>
     </BrowserRouter>

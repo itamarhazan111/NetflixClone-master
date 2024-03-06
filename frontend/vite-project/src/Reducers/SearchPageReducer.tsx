@@ -10,7 +10,7 @@ import { IState } from '@/Models/States/IState.js';
     error:'',
     data:null
  }
-function myListReducer(state: IState<IContent[]> = initialState, action: MyAction) {
+function SearchPageReducer(state: IState<IContent[]> = initialState, action: MyAction) {
     switch (action.type) {
 
         case GET_REQUEST: {
@@ -26,4 +26,4 @@ function myListReducer(state: IState<IContent[]> = initialState, action: MyActio
     }
 }
 
-export default myListReducer
+export default SearchPageReducer

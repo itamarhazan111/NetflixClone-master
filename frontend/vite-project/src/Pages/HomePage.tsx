@@ -12,7 +12,6 @@ const HomePage = () => {
   return (
     <div >
       <CheckUser/>
-        <NavBar></NavBar>
         <Title title='Home - Netflix'/>
         <BillBoard isSeries='home'></BillBoard>
         <ContentPage name='genres'></ContentPage>

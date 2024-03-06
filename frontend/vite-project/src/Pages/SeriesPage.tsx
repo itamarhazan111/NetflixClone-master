@@ -15,7 +15,6 @@ const SeriesPage = () => {
     <div>
 
         <CheckUser/>
-        <NavBar></NavBar>
         <Title title='Home - Netflix'/>
         <BillBoard isSeries="true"></BillBoard>
         

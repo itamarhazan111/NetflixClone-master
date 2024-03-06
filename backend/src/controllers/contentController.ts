@@ -29,6 +29,13 @@ export const getContentById = async (req: Request, res: Response) => {
     res.send(content);
 
 };
+export const getContentsByTitle = async (req: Request, res: Response) => {
+    const titleFromParams=req.params.title;
+    const contents = await Content.find({ title: { $regex: new RegExp(titleFromParams, 'i') } })
+    .limit(12)  // Limit the results to the first 12
+    res.send(contents);
+
+};
 // export const getContentToBillboardByType = async (req: Request, res: Response) => {
 //     const isSeries: boolean = req.params.isSeries.toLowerCase() === "true" ? true : false
 //     const contentToBillboard = await Content.aggregate([
