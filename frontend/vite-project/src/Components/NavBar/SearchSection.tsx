@@ -6,12 +6,14 @@ const SearchSection = () => {
     const node = useRef<HTMLDivElement>(null);  
     const [ query, setQuery ] = useState("");
     const navigate=useNavigate();
+    let {pathname}=useLocation();
   
     useEffect(() => {
-      if(!query){
-        return;
-      }
-      navigate(`/search/${query}`);
+      if(query.length==0){
+        navigate("/")
+      }else{
+        navigate(`/search/${query}`);
+        }
     }, [query]);
   
           
