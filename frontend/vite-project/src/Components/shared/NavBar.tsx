@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import SearchSection from '../NavBar/SearchSection';
 import ProfileSection from '../NavBar/ProfileSection';
 import BrowseSection from '../NavBar/browseSection';
-import Logo from "../../../assets/Netflix-Logo-large.svg"
+import Logo from "../../../assets/Netflix-Logo.wine.svg"
 
 
 const NavBar = () => {
