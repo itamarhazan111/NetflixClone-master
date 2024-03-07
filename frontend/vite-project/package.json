@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@svgr/core": "^8.1.0",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -33,6 +34,7 @@
     "video-react": "^0.16.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.11.18",
     "@types/react": "^18.2.55",
