@@ -8,7 +8,7 @@ import contentRouter from "./routes/contentRouter";
 
 dotenv.config();
 
-hea
+
 
 const app: Express = express();
 
@@ -17,7 +17,6 @@ app.use(express.json());//parses JSONs
 app.use(express.urlencoded({ extended: false }));//this is common practice for urlencoded
 
 const PORT = process.env.PORT || 3000;
-
 app.use((req, res, next) => {
   res.set({
       "Access-Control-Allow-Origin": "*",
@@ -27,7 +26,6 @@ app.use((req, res, next) => {
 
   next();
 });
-
 //routes
 app.use("/api/v1/seed", seedRouter);
 app.use("/api/v1/users", userRouter);
