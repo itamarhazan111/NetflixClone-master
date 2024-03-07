@@ -40,7 +40,7 @@ const NavBar = () => {
         return null;
 
     return (
-        <div className={`p-2 fixed top-0 left-0 right-0 z-10 text-white transition-all duration-500 ${navbarClass}`}>
+        <div className={`p-2 fixed top-0 left-0 right-0 z-50 text-white transition-all duration-500 ${navbarClass}`}>
             <div className="mx-auto flex justify-between items-center">
                 <div className='flex justify-between-left items-center'>
                     <img src={Logo} alt="Netflix Logo" className="w-22 mr-2" onClick={() => navigate("/")} />
