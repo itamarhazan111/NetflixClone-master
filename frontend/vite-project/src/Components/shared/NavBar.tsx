@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { User } from '@/Context/user';
 import '@fortawesome/fontawesome-free/css/all.css';
-import SearchSection from '../Navbar/SearchSection';
-import ProfileSection from '../Navbar/ProfileSection';
-import BrowseSection from '../Navbar/browseSection';
+import SearchSection from '../NavBar/SearchSection';
+import ProfileSection from '../NavBar/ProfileSection';
+import BrowseSection from '../NavBar/browseSection';
 
 
 const NavBar = () => {
