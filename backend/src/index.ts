@@ -17,15 +17,7 @@ app.use(express.json());//parses JSONs
 app.use(express.urlencoded({ extended: false }));//this is common practice for urlencoded
 
 const PORT = process.env.PORT || 3000;
-app.use((req, res, next) => {
-  res.set({
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-      "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-  });
 
-  next();
-});
 //routes
 app.use("/api/v1/seed", seedRouter);
 app.use("/api/v1/users", userRouter);
