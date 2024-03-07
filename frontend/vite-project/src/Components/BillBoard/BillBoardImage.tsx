@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const BillBoardImage=(props:{image:string})=> {
     const imageStyle = {

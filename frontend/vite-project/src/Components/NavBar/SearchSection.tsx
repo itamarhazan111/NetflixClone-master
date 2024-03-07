@@ -1,40 +1,44 @@
 import { useEffect, useState, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SearchSection = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const node = useRef<HTMLDivElement>(null);  
-    const [ query, setQuery ] = useState("");
-    const navigate=useNavigate();
-    let {pathname}=useLocation();
-  
+    const node = useRef<HTMLDivElement>(null);
+    const [query, setQuery] = useState("");
+    const navigate = useNavigate();
+
+
     useEffect(() => {
-      if(query.length==0){
-        navigate("/")
-      }else{
-        navigate(`/search/${query}`);
+        if (query.length == 0) {
+            navigate("/")
+        } else {
+            navigate(`/search/${query}`);
         }
     }, [query]);
-  
-          
-  
+
+
+
 
     const handleClickOutside = (e: MouseEvent) => {
         if (node.current?.contains(e.target as Node)) {
-            // inside click
+
             return;
         }
-        // outside click 
+
         setIsOpen(false);
-    };  
+    };
     useEffect(() => {
-        // add when mounted
+
         document.addEventListener("mousedown", handleClickOutside);
-        // return function to be called when unmounted
+
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
+    const handelXClick = () => {
+        setQuery("");
+    }
 
     return (
         <div className={`relative flex items-center transition duration-500 ${isOpen ? 'border-2 border-white' : 'border-0 border-transparent'}`} ref={node}>
@@ -46,11 +50,12 @@ const SearchSection = () => {
                     }`}
                 type="text"
                 placeholder="Search..."
-                onChange={(e)=>setQuery(e.target.value)}
+                onChange={(e) => setQuery(e.target.value)}
             />
+            {query.length > 0 && <i className="fa-solid fa-xmark mr-2" onClick={handelXClick}></i>}
         </div>
     );
 };
 
 
-export default SearchSection;
+export default SearchSection;

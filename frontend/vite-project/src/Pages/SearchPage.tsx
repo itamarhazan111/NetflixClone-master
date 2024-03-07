@@ -1,12 +1,11 @@
 import { IContent } from '@/Models/IContent';
 import SearchPageReducer from '@/Reducers/SearchPageReducer';
-import React, { useEffect, useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import { IState } from '@/Models/States/IState';
 import reducerHook from '@/Hooks/reducerHook';
 import GridView from '@/Components/shared/GridView';
 import { useParams } from 'react-router-dom';
 import CheckUser from '@/Components/shared/CheckUser';
-import NavBar from '@/Components/shared/NavBar';
 import Title from '@/Components/shared/Title';
 
 
@@ -26,7 +25,7 @@ const SearchPage=() =>{
   return (
         <div>
         <CheckUser/>
-        <Title title='search- Netflix'/>
+        <Title title='Search - Netflix'/>
             <div className="px-14 py-20 ">
             {state.data? <GridView myList={state.data}></GridView> : <p>error()</p>}
             </div>

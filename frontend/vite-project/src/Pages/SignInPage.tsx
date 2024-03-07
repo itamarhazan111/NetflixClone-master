@@ -1,11 +1,11 @@
 import { useContext, useEffect, useRef } from "react";
 import Title from "../Components/shared/Title";
 import { toast } from "react-toastify";
-import { getData, postData } from "../Helpers/httpRequest"
+import { postData } from "../Helpers/httpRequest"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { User } from "../Context/user";
-import { GET_MY_LIST, USER_SIGNIN } from "../Helpers/Actions";
+import { USER_SIGNIN } from "../Helpers/Actions";
 import { getError } from "@/Helpers/utils";
 
 const SignInPage = () => {
