@@ -6,6 +6,8 @@ import reducerHook from '@/Hooks/reducerHook';
 import BillBoardImage from '../BillBoard/BillBoardImage';
 import BillBoardContent from '../BillBoard/BillBoardContent';
 import BillBoardVideo from '../BillBoard/BillBoardVideo';
+import Loading from './Loading';
+import Error from './Error';
 
 const initialState: IState<IContent[]> = {
   loading: true,
@@ -27,7 +29,6 @@ const BillBoard = (props: { isSeries: string }) => {
     }, 3000);
   };
 
-
   return (
 
     <div>
@@ -41,7 +42,7 @@ const BillBoard = (props: { isSeries: string }) => {
           <BillBoardVideo trailer={state.data.trailer.toString()} />
         )}
         <BillBoardContent imgTitle={state.data.imgTitle} description={state.data.description} _id={state.data._id} />
-      </div> : <div></div>}
+      </div> : state.loading?<Loading></Loading>:<Error message={state.error}/>}
 
     </div>
   );

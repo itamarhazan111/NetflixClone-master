@@ -5,6 +5,8 @@ import ContentSection from '@/Components/shared/ContentSection';
 
 import { IState } from '@/Models/States/IState';
 import reducerHook from '@/Hooks/reducerHook';
+import Loading from './Loading';
+import Error from './Error';
 
 
 
@@ -22,7 +24,7 @@ const ContentPage=(props:{name:String})=> {
   return (
     <div>
         <div className='products'>
-          {state.loading ?<p>loading</p>: state.error ?<p>{state.error}</p>:(
+          {state.data ?(
             <div>
               {state.data.map((listName:string,index:number) => (
                 props.name==='movies'?
@@ -32,7 +34,7 @@ const ContentPage=(props:{name:String})=> {
                 :<ContentSection key={index}  genre={listName} movieName={undefined} seriesName={undefined} url='' />
               ))}
             </div>
-          )}
+          ):state.loading?<Loading></Loading>:<Error message={state.error}></Error> }
           
          </div>
 
