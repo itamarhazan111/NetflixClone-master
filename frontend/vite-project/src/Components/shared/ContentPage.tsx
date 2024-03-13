@@ -2,7 +2,6 @@
 import {  useEffect, useReducer} from 'react';
 import pagesReducer from '@/Reducers/pagesReducer';
 import ContentSection from '@/Components/shared/ContentSection';
-
 import { IState } from '@/Models/States/IState';
 import reducerHook from '@/Hooks/reducerHook';
 import Loading from './Loading';

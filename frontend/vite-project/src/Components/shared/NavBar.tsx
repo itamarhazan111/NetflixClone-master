@@ -41,12 +41,12 @@ const NavBar = () => {
 
     return (
         <div className={`p-2 fixed top-0 left-0 right-0 z-50 text-white transition-all duration-500 ${navbarClass}`}>
-            <div className="mx-auto flex justify-between items-center">
-                <div className='flex justify-between-left items-center'>
-                    <img src={Logo} alt="Netflix Logo" className="w-22 mr-2" onClick={() => navigate("/")} />
+            <div className="flex justify-between items-center">
+                <div className='flex items-center ml-0 md:ml-8'>
+                    <img src={Logo} alt="Netflix Logo" className="h-4 md:h-8 w-10 md:w-24 mr-1 md:mr-0 mt-2 ml-0 md:ml-5" onClick={() => navigate("/")} />
                     <BrowseSection />
                 </div>
-                <div className='flex justify-between-right items-center mr-10 space-x-6'>
+                <div className='flex justify-between-right items-center mr-10 space-x-4 md:space-x-6'>
                     <SearchSection />
                     <Link to='#' className='nav-link'>
                         <i className="fa-regular fa-bell"></i>

@@ -18,7 +18,7 @@ const initialState: IState<IContent[]> = {
 const BillBoard = (props: { isSeries: string }) => {
   const [state, dispatch] = useReducer(billBoardReducer, initialState);
   const [showTrailer, setShowTrailer] = useState(false);
-  
+
   useEffect(() => {
     reducerHook(`/api/v1/content/getContentBillBoard/${props.isSeries}`, dispatch)
   }, [])
@@ -42,7 +42,7 @@ const BillBoard = (props: { isSeries: string }) => {
           <BillBoardVideo trailer={state.data.trailer.toString()} />
         )}
         <BillBoardContent imgTitle={state.data.imgTitle} description={state.data.description} _id={state.data._id} />
-      </div> : state.loading?<Loading></Loading>:<Error message={state.error}/>}
+      </div> : state.loading ? <Loading></Loading> : <Error message={state.error} />}
 
     </div>
   );

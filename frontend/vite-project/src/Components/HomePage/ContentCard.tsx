@@ -68,7 +68,6 @@ const ContentCard = (props: { content: IContent }) => {
             </div>
             : <></>}
         </div>
-
       </CardContent>
     </Card >
   );
