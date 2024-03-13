@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 import { User } from "../Context/user";
 import FormOrChecker from "@/Components/SignUpPage/FormOrChecker";
 import Logo from "../../assets/Netflix-Logo-large.svg"
-
+//add
 const SignUpPage = () => {
 
     const navigate = useNavigate();
