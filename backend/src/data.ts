@@ -57,6 +57,42 @@ export const data = {
       limit: '12',
       genre: genres[Math.floor(Math.random() * genres.length)],
       isSeries: false,
+    },{
+      title: 'The Silence of the Lambs',
+      description:
+        'The Silence of the Lambs is a 1991 psychological horror film directed by Jonathan Demme. It follows a young FBI trainee seeking the help of Hannibal Lecter, a brilliant but insane serial killer, to catch another killer on the loose.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/51F2otWOq2L._AC_SY679_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/12/The-Silence-of-the-Lambs-PNG-File.png',
+      imgThumb:
+        'https://m.media-amazon.com/images/I/51F2otWOq2L._AC_.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/c3/3a/d6/c33ad6efcbf3d685a3a62a2a4cd864ea.jpg',
+      trailer: 'https://youtu.be/W6Mm8Sbe__o',
+      movie: 'https://youtu.be/W6Mm8Sbe__o',
+      duration: '1 hour 58 min',
+      year: '1991',
+      limit: '18',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },{
+      title: 'Jurassic Park',
+      description:
+        'Jurassic Park is a 1993 science fiction adventure film directed by Steven Spielberg. It is based on the 1990 novel of the same name by Michael Crichton and follows a group of people encountering cloned dinosaurs on a remote island.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/51pJdG6NiXL._AC_SY741_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/12/Jurassic-Park-PNG-Free-Download.png',
+      imgThumb:
+        'https://m.media-amazon.com/images/I/51pJdG6NiXL._AC_.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/57/da/2e/57da2e85f942a0c5c1a5a21f8c8223b3.jpg',
+      trailer: 'https://youtu.be/lc0UehYemQA',
+      movie: 'https://youtu.be/lc0UehYemQA',
+      duration: '2 hours 7 min',
+      year: '1993',
+      limit: '12',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
     },
     {
       title: 'Inception',
