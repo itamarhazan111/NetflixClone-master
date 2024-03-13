@@ -25,7 +25,7 @@ const SignUpPage = () => {
             <Title title="Sign Up" />
             <div className="z-10 flex flex-row items-center justify-between mx-auto ml-0 px-4 w-full">
                 <div>
-                    <img src={Logo} alt="Netflix Logo" className="w-22 md:w-60" />
+                    <img src={Logo} alt="Netflix Logo" className="h-20 md:h-20 w-22 md:w-60" />
                 </div>
                 <div className="mr-0 ">
                     <button type="button" onClick={() => navigate("/signin")} className="py-3 px-4 bg-red-600 text-white rounded-md">Sign In</button>
