@@ -40,7 +40,25 @@ export const data = {
   ],
   content: [
     {
-      //Movies
+      title: 'Forrest Gump',
+      description:
+        'Forrest Gump is a 1994 comedy-drama film directed by Robert Zemeckis. It depicts several decades in the life of Forrest Gump, a slow-witted but kind and athletically-talented man.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/51kZ4gq%2B0HL._AC_SY679_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/10/Forrest-Gump-PNG-Transparent-Image.png',
+      imgThumb:
+        'https://m.media-amazon.com/images/I/51kZ4gq+0HL._AC_.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/d1/e8/7b/d1e87b06d4d2a9bea9f8f7e98b62aa51.jpg',
+      trailer: 'https://youtu.be/bLvqoHBptjg',
+      movie: 'https://youtu.be/bLvqoHBptjg',
+      duration: '2 hours 22 min',
+      year: '1994',
+      limit: '12',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },
+    {
       title: 'Inception',
       description:
         'Inception is a 2010 science fiction action film written, co-produced, and directed by Christopher Nolan, and co-produced by Emma Thomas. The film stars Leonardo DiCaprio as a professional thief who steals information by infiltrating the subconscious of his targets.',
