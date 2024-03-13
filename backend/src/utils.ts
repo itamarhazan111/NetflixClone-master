@@ -37,7 +37,7 @@ export const sendMail = async (options: any) => {
             subject: options.subject,
             text: options.message
         }
-        await new Promise((resolve, reject) =>{
+        await new Promise((resolve, reject) => {
             transport.sendMail(mail, (error, info) => {
                 if (error) {
                     console.log(error.message)
@@ -45,10 +45,12 @@ export const sendMail = async (options: any) => {
                 } else {
                     console.log("success")
                 }
-                resolve(info);
-            })})
+                resolve(info)
+            })
+    })
     }
 }
+
 export const isAuth = (req: Request, res: Response, next: NextFunction) => {
     const auth = req.headers.authorization;
     if (auth) {
