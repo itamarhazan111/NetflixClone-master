@@ -95,6 +95,101 @@ export const data = {
       isSeries: false,
     },
     {
+      title: 'Avatar',
+      description:
+        'Avatar is a 2009 science fiction film directed by James Cameron. The film is set in the mid-22nd century when humans are colonizing Pandora, a lush habitable moon of a gas giant.',
+      img: 'https://www.joblo.com/assets/images/joblo/posters/2020/08/8Sq6hjMhOTJxvYztth2m2z7xg7.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/3/Avatar-PNG-Clipart.png',
+      imgThumb:
+        'https://i.redd.it/3g0l04dxszb51.jpg',
+      imgVertical:
+        'https://wallpapercave.com/wp/wp4154292.jpg',
+      trailer: 'https://youtu.be/6ziBFh3V1aM',
+      movie: 'https://youtu.be/6ziBFh3V1aM',
+      duration: '2 hours 42 min',
+      year: '2009',
+      limit: '12',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },
+    {
+      title: 'The Grand Budapest Hotel',
+      description:
+        'The Grand Budapest Hotel is a 2014 comedy-drama film written and directed by Wes Anderson. The film recounts the adventures of Gustave H, a legendary concierge at a famous European hotel between the wars.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/81lD%2B9GgX2L._AC_SY679_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/1/Grand-Budapest-Hotel-PNG-Free-Download.png',
+      imgThumb:
+        'https://imgc.allpostersimages.com/img/print/u-g-F5NYLZ0.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/12/25/98/12259857911e6dfbdaafad86212d3c54.jpg',
+      trailer: 'https://youtu.be/1Fg5iWmQjwk',
+      movie: 'https://youtu.be/1Fg5iWmQjwk',
+      duration: '1 hour 39 min',
+      year: '2014',
+      limit: '12',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },
+    {
+      title: 'Blade Runner 2049',
+      description:
+        'Blade Runner 2049 is a 2017 science fiction film directed by Denis Villeneuve. It is a sequel to the 1982 film Blade Runner and follows a new blade runner who unearths a long-buried secret.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/71U5zRNTSlL._AC_SY679_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/7/Blade-Runner-2049-PNG-File.png',
+      imgThumb:
+        'https://i.redd.it/6o6rptys8r5z.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/ae/7b/f5/ae7bf5041d56b0b37316a716e5f152ba.jpg',
+      trailer: 'https://youtu.be/gCcx85zbxz4',
+      movie: 'https://youtu.be/gCcx85zbxz4',
+      duration: '2 hours 44 min',
+      year: '2017',
+      limit: '15',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },
+    {
+      title: 'The Shining',
+      description:
+        'The Shining is a 1980 psychological horror film directed by Stanley Kubrick. It is based on Stephen King\'s 1977 novel of the same name and stars Jack Nicholson as an aspiring writer who accepts a position as the off-season caretaker of the historic Overlook Hotel in the Colorado Rockies.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/61XFnqqLsmL._AC_SY679_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/15/The-Shining-PNG-Photo.png',
+      imgThumb:
+        'https://m.media-amazon.com/images/I/91a0yqc6X6L._SL1500_.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/68/61/2f/68612f4973c1cc97798214b0c95672f3.jpg',
+      trailer: 'https://youtu.be/HEew7zvpAWE',
+      movie: 'https://youtu.be/HEew7zvpAWE',
+      duration: '2 hours 26 min',
+      year: '1980',
+      limit: '18',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },
+    {
+      title: 'La La Land',
+      description:
+        'La La Land is a 2016 musical romantic drama film written and directed by Damien Chazelle. The film is about a jazz musician and an aspiring actress who meet and fall in love while pursuing their dreams in Los Angeles.',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/71b1q0wCvSL._AC_SY679_.jpg',
+      imgTitle:
+        'https://www.pngmart.com/files/4/La-La-Land-Transparent-Background.png',
+      imgThumb:
+        'https://www.indiewire.com/wp-content/uploads/2016/12/lala.jpg',
+      imgVertical:
+        'https://i.pinimg.com/originals/42/07/48/420748fb7f69f05ed9f3b3f32a01a496.jpg',
+      trailer: 'https://youtu.be/0pdqf4P9MB8',
+      movie: 'https://youtu.be/0pdqf4P9MB8',
+      duration: '2 hours 8 min',
+      year: '2016',
+      limit: '12',
+      genre: genres[Math.floor(Math.random() * genres.length)],
+      isSeries: false,
+    },
+    {
       title: 'Inception',
       description:
         'Inception is a 2010 science fiction action film written, co-produced, and directed by Christopher Nolan, and co-produced by Emma Thomas. The film stars Leonardo DiCaprio as a professional thief who steals information by infiltrating the subconscious of his targets.',
