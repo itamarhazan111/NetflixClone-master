@@ -15,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
+    "@types/material-ui": "^0.21.17",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -31,10 +32,10 @@
     "redux": "^5.0.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "video-react": "^0.16.0",
-    "@types/material-ui": "^0.21.17"
+    "video-react": "^0.16.0"
   },
   "devDependencies": {
+    "@mui/icons-material": "^5.15.13",
     "@types/js-cookie": "^3.0.6",
     "@types/material-ui": "^0.21.17",
     "@types/node": "^20.11.18",
