@@ -47,6 +47,7 @@ export const seedData = async (req: Request, res: Response) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
 const getGenres= async() => {
     return genres;
 }

@@ -126,6 +126,13 @@ export const getContentsBySeriesName = async (req: Request, res: Response) => {
 export const addContent=async (req: Request, res: Response) => {
     const {content}=req.body;
     console.log(content)
-    const   newContent = new Content(content);
+    const newContent = new Content(content);
+    console.log(newContent)
+    await ContentListByGenre.findOneAndUpdate(
+        { genre:content.genre }, // Find the document with the "Animation" genre
+        { $push: { contentList: newContent } }, // Push the new content to the contentList array
+        { new: true } 
+        );
     res.send(await newContent.save());
+    
 }

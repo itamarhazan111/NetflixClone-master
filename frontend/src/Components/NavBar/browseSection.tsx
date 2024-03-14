@@ -30,7 +30,6 @@ const BrowseSection = () => {
                 <Link className='p-1' to={'/series'} >TV Shows</Link>
                 <Link className='p-1' to={'/movies'} >Movies</Link>
                 <Link className='p-1' to={'/mylist'} >My List</Link>
-                <Link className='p-1' to={'/addcontent'} >add</Link>
             </div>
             <div className="lg:hidden flex flex-row items-center gap-2 cursor-pointer relative" onMouseEnter={showDropdownMenu} onMouseLeave={hideDropdownMenu}>
                 <div className='flex flex-row items-center'>
