@@ -6,6 +6,12 @@ import { IContent } from '@/Models/IContent';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "../ui/dialog";
+import ReactPlayer from 'react-player';
 
 const CardHoverInterface = (props: { content: IContent }) => {
   const { state: { userInfo }, dispatch } = useContext(User);
@@ -55,9 +61,39 @@ const CardHoverInterface = (props: { content: IContent }) => {
           </button>
         </div>
         <div>
-          <button className='rounded-full border border-gray-100 text-gray-100 p-1 w-8 h-8'>
-            <i className="fa-solid fa-angle-down"></i>
-          </button>
+          <Dialog>
+            <DialogTrigger>
+              <button className='rounded-full border border-gray-100 text-gray-100 p-1 w-8 h-8'>
+                <i className="fa-solid fa-angle-down"></i>
+              </button>
+            </DialogTrigger>
+            <DialogContent>
+              <div className='aspect-[16/9]'>
+                <ReactPlayer
+                  className="pointer-events-none"
+                  muted
+                  playing
+                  loop
+                  controls={false}
+                  disablePictureInPicture
+                  width={'100%'}
+                  height={'100%'}
+                  url={props.content.trailer.toString()}
+                  onClick={navToWatchPage}>
+                </ReactPlayer>
+              </div>
+              <div>
+                <h1 className='text-white text-xl font-bold pl-6 pr-6'>{props.content.title}</h1>
+              </div>
+              <div>
+                <p className='text-green-500 pl-6 pr-6'>{props.content.year}</p>
+                <p className='text-cyan-200 pl-6 pr-6'>{props.content.duration}</p>
+              </div>
+              <div>
+                <p className='text-white pl-6 pb-6 pr-6'>{props.content.description}</p>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <div>
