@@ -16,13 +16,7 @@ export const getSeries = async (req: Request, res: Response) => {
     const series = await Content.find({ isSeries: true });
     res.send(series);
 };
-// export const getContentsByGenre = async (req: Request, res: Response) => {
-//     const genre=req.params.genre;
-//     const contentListId = await ContentListByGenre.find({genre});
-//     const contentList=contentListId.map((content)=> await Content.find({content.id}))
 
-//     res.send(contentList);
-// };
 export const getContentById = async (req: Request, res: Response) => {
     const id=req.params.id;
     const content= await Content.findById(id)
@@ -36,15 +30,7 @@ export const getContentsByTitle = async (req: Request, res: Response) => {
     res.send(contents);
 
 };
-// export const getContentToBillboardByType = async (req: Request, res: Response) => {
-//     const isSeries: boolean = req.params.isSeries.toLowerCase() === "true" ? true : false
-//     const contentToBillboard = await Content.aggregate([
-//             { $match: { isSeries:isSeries } },
-//             { $sample: { size: 1 } }
-//         ]);
-//         res.send(contentToBillboard);
-    
-// };
+
 export const getContentToBillboard = async (req: Request, res: Response) => {
     const isSeries: boolean|null = req.params.isSeries.toLowerCase() === "true" ? true : req.params.isSeries.toLowerCase() === "false"?false:null;
     let contentToBillboard;
