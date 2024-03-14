@@ -8,7 +8,7 @@ import { IState } from '@/Models/States/IState.js';
     loading:true,
     error:'',
     data:null
- }
+ }//j
 const billBoardReducer=(state: IState<IContent> = initialState, action: MyAction)=>{
     switch(action.type){
 
