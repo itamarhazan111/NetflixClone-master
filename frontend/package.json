@@ -10,12 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/material": "^5.15.13",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.6.7",
@@ -39,7 +36,6 @@
   "devDependencies": {
     "@mui/icons-material": "^5.15.13",
     "@types/js-cookie": "^3.0.6",
-    "@types/material-ui": "^0.21.17",
     "@types/node": "^20.11.18",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",

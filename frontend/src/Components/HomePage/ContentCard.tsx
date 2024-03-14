@@ -63,7 +63,7 @@ const ContentCard = (props: { content: IContent }) => {
             </ReactPlayer>
           }
           {hovered ?
-            <div className="p-1 bg-zinc-800 shadow-2xl rounded-b-sm ">
+            <div className="p-1 bg-zinc-800 rounded-b-sm ">
               <CardHoverInterface content={props.content}></CardHoverInterface>
             </div>
             : <></>}

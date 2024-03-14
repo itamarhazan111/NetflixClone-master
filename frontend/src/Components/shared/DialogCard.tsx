@@ -30,6 +30,9 @@ const DialogCard=(props: { content: IContent })=> {
               <div>
                 <p className='text-green-500 pl-6 pr-6'>{props.content.year}</p>
                 <p className='text-cyan-200 pl-6 pr-6'>{props.content.duration}</p>
+                <p className='text-white pl-6 pr-6 mt-2'>
+                  <span className="border p-1">{props.content.limit}+</span>
+                </p>
               </div>
               <div>
                 <p className='text-white pl-6 pb-6 pr-6'>{props.content.description}</p>
