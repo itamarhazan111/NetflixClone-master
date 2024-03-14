@@ -31,7 +31,8 @@
     "redux": "^5.0.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "video-react": "^0.16.0"
+    "video-react": "^0.16.0",
+    "@types/material-ui": "^0.21.17"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
