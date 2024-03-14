@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
+    "@types/material-ui": "^0.21.17",
     "@types/node": "^20.11.18",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
