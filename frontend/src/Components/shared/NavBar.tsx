@@ -6,7 +6,7 @@ import SearchSection from '../NavBar/SearchSection';
 import ProfileSection from '../NavBar/ProfileSection';
 import BrowseSection from '../NavBar/browseSection';
 import Logo from "../../../assets/Netflix-Logo.wine.svg"
-import { Badge, IconButton } from '@material-ui/core';
+import { Badge, IconButton } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
 
