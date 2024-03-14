@@ -36,7 +36,7 @@ const NavBar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [userInfo.myList]);
+    }, [userInfo]);
 
     const navbarClass = scrollPosition > 0 ? "bg-zinc-900" : "bg-gradient-to-b from-black to-transparent";
     if (
