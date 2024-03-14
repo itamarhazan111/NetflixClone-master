@@ -123,3 +123,9 @@ export const getContentsBySeriesName = async (req: Request, res: Response) => {
         res.status(500).send('Internal Server Error');
     }
 };
+export const addContent=async (req: Request, res: Response) => {
+    const {content}=req.body;
+    console.log(content)
+    const   newContent = new Content(content);
+    res.send(await newContent.save());
+}

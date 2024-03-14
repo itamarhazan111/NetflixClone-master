@@ -71,4 +71,12 @@ export const isAuth = (req: Request, res: Response, next: NextFunction) => {
         res.status(401).send({ message: "No token" });
     }
 }
-
+  
+export const isAdmin = (req:Request, res: Response, next: NextFunction) => {
+    const user=(req as UserRequest).user
+    if (!user || !user.isAdmin) {
+      return res.status(401).send({ message: 'Unauthorized: Not an administrator' });
+    }
+    next();
+  };
+  
