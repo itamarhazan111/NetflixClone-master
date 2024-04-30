@@ -15,7 +15,9 @@ dotenv.config();
 const app: Express = express();
 
 app.use(cors({
-  origin: 'https://netflix-clone-master-cxpc.vercel.app' // Replace with your frontend origin
+  'allowedHeaders': [ 'Content-Type'],
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
 app.use(express.json());//parses JSONs
 app.use(express.urlencoded({ extended: false }));//this is common practice for urlencoded
