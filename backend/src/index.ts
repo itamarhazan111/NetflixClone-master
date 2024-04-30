@@ -42,28 +42,28 @@ mongoose.connect(mongoConnect)
     })
   }).catch(err => console.log(err.message));
 
-  const wss = new WebSocket.Server({ port: 3001 }); // Replace with your desired port
+  // const wss = new WebSocket.Server({ port: 3001 }); // Replace with your desired port
 
-  wss.on('connection', (ws) => {
-    console.log('Client connected');
+  // wss.on('connection', (ws) => {
+  //   console.log('Client connected');
     
   
-    ws.on('message', (message) => {
-      const data = JSON.parse(message.toString()); // Now it's a string for JSON
-      if(data.type=="watch"){
-         sendKafkaMessage(data);
-         consumeAllMessages();
-      }
+  //   ws.on('message', (message) => {
+  //     const data = JSON.parse(message.toString()); // Now it's a string for JSON
+  //     if(data.type=="watch"){
+  //        sendKafkaMessage(data);
+  //        consumeAllMessages();
+  //     }
       
-      ws.send('Hello from the server!');// Send a response message
-    });
+  //     ws.send('Hello from the server!');// Send a response message
+  //   });
   
-    ws.on('close', () => {
-      console.log('Client disconnected');
-    });
-  });
+  //   ws.on('close', () => {
+  //     console.log('Client disconnected');
+  //   });
+  // });
   
-  recommendedMovieAnalysis();
+  //recommendedMovieAnalysis();
   export default app
 
 
