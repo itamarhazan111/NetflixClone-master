@@ -16,7 +16,7 @@ const app: Express = express();
 
 app.use(cors({
   'allowedHeaders': [ 'Content-Type'],
-  'origin': '*',
+  'origin': 'https://netflix-clone-master-cxpc.vercel.app',
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
 app.use(express.json());//parses JSONs
