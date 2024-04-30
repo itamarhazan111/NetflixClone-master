@@ -13,6 +13,8 @@ const CheckUser=()=> {
     const redirectURL=new URLSearchParams(search);
     const redirectValue=redirectURL.get("redirect");
     const redirect = redirectValue ?redirectValue:"/signin";
+    console.log(userInfo)
+    console.log(token)
     useEffect(() => {
         if(!userInfo||!token){
           ctxDispatch({ type: USER_SIGNOUT })

@@ -16,7 +16,9 @@ const HomePage = () => {
       <CheckUser/>
         <Title title='Home - Netflix'/>
         <BillBoard isSeries='home'></BillBoard>
-        <ContentsCarousel contents={userInfo.myRecommendations} title="Recommended for you" />
+        {(userInfo&&userInfo.myRecommendations)?
+                  <ContentsCarousel contents={userInfo.myRecommendations} title="Recommended for you" />:
+                  <></>}
         <ContentPage name='genres'></ContentPage>
         <ContentPage name='series'></ContentPage>
         <ContentPage name='movies'></ContentPage>
