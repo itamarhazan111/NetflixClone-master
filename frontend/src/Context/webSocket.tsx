@@ -8,7 +8,7 @@ interface WebSocketState {
 export const WebSocketContext = createContext<WebSocketState | null>(null);
 
 export const WebSocketProvider= ({ children }:any) => {
-  const [url] = useState<string>('wws://netflix-clone-master-two.vercel.app/:3001'); // Replace with your server URL
+  const [url] = useState<string>('wss://netflix-clone-master-two.vercel.app/:3001'); // Replace with your server URL
 
   const {sendMessage} = useWebSocket(url);
 
