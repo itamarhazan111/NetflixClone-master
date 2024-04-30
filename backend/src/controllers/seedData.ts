@@ -8,6 +8,7 @@ import ContentListBySeriesName from "../models/ContentListBySeriesName";
 
 
 
+
 export const seedData = async (req: Request, res: Response) => {
     try {
         await User.deleteMany();

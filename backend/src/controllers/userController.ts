@@ -32,7 +32,7 @@ export const signup = async (req: Request, res: Response) => {
 
 export const signin = async (req: Request, res: Response) => {
     const { password: passwordFromWebsite, email } = req.body;
-    const user = await User.findOne({ email: email }).populate('myList');
+    const user = await User.findOne({ email: email }).populate('myRecommendations').populate('myList');
     if (user) {
         if (bcrypt.compareSync(passwordFromWebsite.toString(), user.password.toString())) {
             res.send({
@@ -41,7 +41,8 @@ export const signin = async (req: Request, res: Response) => {
                 email: user.email,
                 profilePicture:user.profilePicture,
                 token: generateToken(user),
-                myList:user.myList
+                myList:user.myList,
+                myRecommendations:user.myRecommendations
             });
             return;
         }

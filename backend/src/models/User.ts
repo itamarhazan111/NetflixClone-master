@@ -10,6 +10,7 @@ interface IUser {
   profilePicture: String,
   myList: mongoose.Types.ObjectId[],
   ref: 'Content',
+  myRecommendations: mongoose.Types.ObjectId[],
   passwordChangeAt: Number,
   passwordResetToken: String | undefined,
   passwordResetTokenExpires: Date | undefined,
@@ -28,6 +29,10 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
   isAdmin: { type: Boolean, default: false },
   profilePicture: { type: String },
   myList: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Content',
+  },
+  myRecommendations: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: 'Content',
   },

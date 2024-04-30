@@ -16,11 +16,18 @@ import NavBar from './Components/shared/NavBar.tsx';
 import ResetPasswordPage from './Pages/ResetPasswordPage.tsx';
 import ChangePasswordPage from './Pages/ChangePasswordPage.tsx';
 import AddContentPage from './Pages/AddContentPage.tsx';
+import { WebSocketProvider } from './Context/webSocket.tsx';
+
+
+
+
 
 const App=()=> {
 
+
   
   return (
+    <WebSocketProvider>
     <UserProvider>
     <HelmetProvider>
     <BrowserRouter>
@@ -46,6 +53,7 @@ const App=()=> {
     </BrowserRouter>
     </HelmetProvider>
   </UserProvider>
+  </WebSocketProvider>
   )
 }
 
