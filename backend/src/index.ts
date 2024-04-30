@@ -14,7 +14,9 @@ dotenv.config();
 
 const app: Express = express();
 
-app.use(cors());//dose nothing at the moment
+app.use(cors({
+  origin: 'https://netflix-clone-master-cxpc.vercel.app' // Replace with your frontend origin
+}));
 app.use(express.json());//parses JSONs
 app.use(express.urlencoded({ extended: false }));//this is common practice for urlencoded
 
@@ -62,7 +64,7 @@ mongoose.connect(mongoConnect)
       console.log("listening to port " + PORT)
     })
   }).catch(err => console.log(err.message));
-  
+
   recommendedMovieAnalysis();
   export default app
 

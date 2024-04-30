@@ -108,7 +108,6 @@ export const sendKafkaMessage=async(message: any)=>{
                 },
             ],
             });
-            console.log("start produce")
 
         } catch (error) {
             console.error('Error sending message:', error);
@@ -119,7 +118,6 @@ export const sendKafkaMessage=async(message: any)=>{
   }
 
   export const consumeAllMessages = async()=> {
-    console.log("consume")
     const kafka = new Kafka({
         clientId:"my-consumer",
         brokers: ['localhost:9092'],
@@ -129,8 +127,7 @@ export const sendKafkaMessage=async(message: any)=>{
     await consumer.connect();
     await consumer.subscribe({ topic: 'test'});
     consumer.run({
-        eachMessage: async ({ message }) => {
-          console.log("sssssssssss")  
+        eachMessage: async ({ message }) => { 
           const value = message.value?.toString(); // Access value only if it exists
           if (value) {
             const data = JSON.parse(value);
