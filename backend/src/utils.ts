@@ -89,7 +89,6 @@ export const isAdmin = (req:Request, res: Response, next: NextFunction) => {
   };
 
 export const sendKafkaMessage=async(message: any)=>{
-    console.log("ffffffff")
     const kafka = new Kafka({
         clientId:"my-producer",
         brokers: ['localhost:9092'],
