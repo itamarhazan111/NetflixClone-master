@@ -89,9 +89,10 @@ export const isAdmin = (req:Request, res: Response, next: NextFunction) => {
   };
 
 export const sendKafkaMessage=async(message: any)=>{
+
     const kafka = new Kafka({
         clientId:"my-producer",
-        brokers: ['netflix-clone-master-two.vercel.app:9092'],
+        brokers: ['localhost:9092'],
       })
           
       const producer = kafka.producer()
@@ -120,7 +121,7 @@ export const sendKafkaMessage=async(message: any)=>{
   export const consumeAllMessages = async()=> {
     const kafka = new Kafka({
         clientId:"my-consumer",
-        brokers: ['netflix-clone-master-two.vercel.app:9092'],
+        brokers: ['localhost:9092'],
       })
     const consumer = kafka.consumer({ groupId: "group-id"}); // Specify your consumer group ID
 
