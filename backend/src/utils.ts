@@ -143,7 +143,6 @@ export const sendKafkaMessage=async(message: any)=>{
                 }
             );
             await newLogEntry.save()
-            console.log(data);
           } else {
             console.warn('Received message with null value'); // Handle null value
           }

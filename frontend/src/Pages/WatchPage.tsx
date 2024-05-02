@@ -2,7 +2,7 @@ import Error from '@/Components/shared/Error';
 import Loading from '@/Components/shared/Loading';
 import Title from '@/Components/shared/Title';
 import { User } from '@/Context/user';
-import { WebSocketContext } from '@/Context/webSocket';
+import { postDataWithAuth } from '@/Helpers/httpRequest';
 import reducerHook from '@/Hooks/reducerHook';
 import { IContent } from '@/Models/IContent';
 import { IState } from '@/Models/States/IState';
@@ -23,7 +23,6 @@ const WatchPage = () => {
   const [state, dispatch] = useReducer(billBoardReducer, initialState);
   const [showLink, setShowLink] = useState(true);
   const {state:{userInfo}}=useContext(User);
-  const send = useContext(WebSocketContext);
   
 
   useEffect(() => {
@@ -36,14 +35,14 @@ const WatchPage = () => {
 
   useEffect(() => {
     reducerHook(`/api/v1/content/getById/${id}`, dispatch)
-  }, []);
+  },[]);
   useEffect(() => {
-    console.log(userInfo.email)
-    if(state.data)
-      send?.sendMessage(JSON.stringify({data:{_id:state.data._id,title:state.data.title,genre:state.data.genre},
-      user:userInfo.email
-    ,type:"watch"}))
-  }, [state]);
+    if(state.data){
+        postDataWithAuth(`/api/v1/content/watch`,({data:{_id:state.data._id,title:state.data.title,genre:state.data.genre},
+        user:userInfo.email
+       ,type:"watch"}))
+        }
+   }, [state]);
 
   const handleMouseMove = () => {
     setShowLink(true);

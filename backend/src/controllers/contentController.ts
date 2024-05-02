@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import ContentListByGenre from "../models/ContentListByGenre";
 import ContentListByMovieName from "../models/ContentListByMovieName";
 import ContentListBySeriesName from "../models/ContentListBySeriesName";
+import { consumeAllMessages, sendKafkaMessage } from "../utils";
 
 export const getContents = async (req: Request, res: Response) => {
     const contents = await Content.find();
@@ -119,4 +120,12 @@ export const addContent=async (req: Request, res: Response) => {
         );
     res.send(await newContent.save());
     
+}
+export const watchContent=async (req: Request, res: Response) => {
+    const data=req.body; 
+      if(data.type=="watch"){
+          sendKafkaMessage(data);
+          consumeAllMessages();
+      } 
+    res.send();
 }

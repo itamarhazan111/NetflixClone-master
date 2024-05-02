@@ -1,6 +1,6 @@
 import express from "express";
 import expressAsyncHandler from 'express-async-handler'
-import { getContentById, getContentsByTitle, getContentToBillboard, getContents, getContentsByGenre, getContentsByMoviesName, getContentsBySeriesName, getMovies, getSeries, addContent } from "../controllers/contentController";
+import { getContentById, getContentsByTitle, getContentToBillboard, getContents, getContentsByGenre, getContentsByMoviesName, getContentsBySeriesName, getMovies, getSeries, addContent, watchContent } from "../controllers/contentController";
 import { isAdmin, isAuth} from "../utils";
 
 
@@ -16,6 +16,7 @@ contentRouter.get('/getById/:id',isAuth, expressAsyncHandler(getContentById));
 contentRouter.get('/movies/:name',isAuth,getContentsByMoviesName)
 contentRouter.get('/series/:name',isAuth,getContentsBySeriesName)
 contentRouter.get('/search/:title',isAuth,expressAsyncHandler(getContentsByTitle))
+contentRouter.post('/watch',isAuth, expressAsyncHandler(watchContent));
 
 
 
